@@ -46,7 +46,7 @@ First of all an user have to search the URL .Then user have to choose sign up vs
 
 A simplified user workflow diagram is given below. 
 
-![](C:/Users/HP/nsu.fall.2018.cse327.1.t2/diagrams/user_workflow.jpg)  
+![](diagrams/user_workflow.jpg)  
 
 ## 2.3 User Classes And Characteristics
 
@@ -54,7 +54,7 @@ There are two types of user classes. User and Admin are the two classes. Users a
 
 A UML diagram is added below to show the activities done by different user class.
 
-![ ](UML/uml_diagram.png) 
+![ ](Uml/uml_diagram.png) 
 
 ## 2.4 Operating Environment 
 
