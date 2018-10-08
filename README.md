@@ -1,29 +1,15 @@
-# README #
+# Credit Card Recommendation System #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Project repository for CSE327 Section 1 Team 2.
 
-### What is this repository for? ###
+# Group Members
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* Tahsin Mayeesha
+* Sakib Monir
+* Yeasin Arafat Prantik
+* Tashfiq Choudhury
+* Novera Tasnova Chowdhury
 
-### How do I get set up? ###
+# Instructor 
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+Nabil Mohammed 
