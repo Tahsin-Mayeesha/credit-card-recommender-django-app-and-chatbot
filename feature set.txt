@@ -1,0 +1,66 @@
+USER :
+
+User id
+name
+email
+password
+age
+address
+professional status
+preferred card type
+preferred interest rate
+preferred max credit limit
+preferred annual fee
+visa vs mastercard 
+preferred reward airport lounge
+preferred reward cashback available
+preferred reward cashback percentage
+preferred reward luxury resort
+preferred reward insurance plan
+preferred reward death insurance
+preferred reward travel emergency
+preferred reward fine dining
+preferred reward buffet discount
+preferred reward medical discount
+preferred reward airlines ticket
+preferred cash withdrawal fee
+preferred cash withdrawal limit per transaction
+preferred cash withdrawal limit per day
+
+CARD : 
+
+card id
+card name
+bank id
+minimum age limit
+card issue fee
+interest rate
+annual fee
+card replacement fee
+captured card replacement fee
+cash withdrawal fee
+cash withdrawal limit per transaction
+cash withdrawal limit per day
+vat percentage
+minimum credit limit
+maximum credit limit
+interest free period
+fund transfer facility
+international transaction available
+dual currency available
+dual currency fee
+is_visa
+is_mastercard
+reward airport lounge
+reward cashback available
+reward cashback percentage
+reward luxury resort
+reward insurance plan
+reward accidental death insurance
+reward travel emergency
+reward fine dining
+reward buffet discount
+reward medical discount
+reward airlines ticket
+upgrade possible
+sms service available
