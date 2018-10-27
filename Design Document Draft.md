@@ -18,19 +18,43 @@ Please use the table of contents to navigate.
 
 # 2 Project Overview 
 
-In this project we are developing a credit card recommender to recommend credit and debit cards to professionals, students and general people. We generate the recommendations using machine learning. 
+In this project we are developing a credit card recommender to recommend credit and debit cards to professionals, students and general people. We generate the recommendations using machine learning. User is also able to search through the card database with multiple filtering options enabled. We plan to add a card explorer dashboard with interactive data visualizations for giving users more engagement, but the idea is at its infancy.
 
 # 2.1 Application Architecture 
 
-The final product for this project is a responsive web application which will take user preferences into account and generate recommendations with machine learning. For the web application we use python as the backend language and implement the web application using the **MVC**(Model-View-Controller) paradigm.
+The final product for this project is a responsive web application which will take user preferences into account and generate recommendations with machine learning. For the web application we use python as the backend language and implement the web application using the **MVC**(Model-View-Controller) paradigm along with machine learning concepts.
+
+Previously, a recommender system would have been implemented with a lot of if then statements and hard coding for the user along with many filters according to user preferences. However, taking a machine learning approach we learn from data which cards might be suitable for a certain user. Since the credit card recommender is a machine learning product first, we will analyze how to implement the ideas of MVC in this context of machine learning.
+
+## 2.2 Recommender Constraints
+
+Recommender systems where we don't already have a large amount of user and item interaction information available suffer from the problem of "cold start". Cold start in this context basically means according to collaborative filtering ideas, for a certain card, if we knew the subset of users who like that card, we could have taken similar users and recommended that card to those similar users who have not used that card yet. In a movie context we may think it as if my taste and my friend's taste in movies are same, a movie that my friend liked but I've not watched is the one I might like too. 
+
+To tackle this situation instead of user-user similarity, we consider item-item similarity first. If we know user preferences, we can take those information, send to the model, and the model will send us the similar cards according to those preferences. A diagram showing how the machine learning pipeline will be implemented is given below.
+
+![ ](C:\Users\HP\nsu.fall.2018.cse327.1.t2\diagrams\ml_dataflow.png)
+
+## 2.3 Model-View-Controller Perspective
+
+Since we have the machine learning intuition for how the product will work behind the scenes, instead of machine learning we will focus on explaining our application architecture MVC and how it fits in with the  ML parts. When considering the backend of our web application, we can consider the recommender as simple component of our backend logic or subset of our controller code. Recommender API also interacts with the model(database), but it does it as part of the controller class which also handles the search functionalities and user authentication. 
+
+In our implementation the model, view and controller is divided like this :
+
+* Model : Consists of the POSTGRESQL database and objects. ORM like SQLAlchemy or Django ORM will be used to implement model classes.
+* Controller : Consists of classes for delegating user input to recommendation classes and sending search results and generated recommendations back to the view. Controller will also handle user authentication.
+* View : All visual interfaces e.g home page, search page, user profile form input page. 
+
+![](diagrams/mvc.png)
 
 # 3 UML Class Diagrams
 
 
 
-# 4 UML Sequence Diagram
+## 3.1 UML Sequence Diagram
 
+Shows how the user request triggers multiple actions in the backend and how message passing between different components happen until the controller sends the results back to the view. Green bars signal how much time a particular component was active.
 
+![ ](C:\Users\HP\nsu.fall.2018.cse327.1.t2\diagrams\uml sequence.png)
 
 # 5 Database Definitions
 
@@ -50,34 +74,35 @@ The final product for this project is a responsive web application which will ta
 
 ## Table Descriptions
 
-|            TABLE: USER (ATTRIBUTES)             |          Description of Attributes          |
-| :---------------------------------------------: | :-----------------------------------------: |
-|                     User id                     |     Id of user to log in (Primary key)      |
-|                      name                       |              Name of the user               |
-|                      email                      |           Email used for sign up            |
-|                    password                     |          User's password to log in          |
-|                       age                       |                 User's age                  |
-|                     address                     |               User's address                |
-|               professional status               |           Current status of user            |
-|               preferred card type               |                                             |
-|             preferred interest rate             |                                             |
-|           preferred max credit limit            |                                             |
-|              preferred annual fee               |                                             |
-|               visa vs master card               |                                             |
-|         preferred reward airport lounge         |   if user wants airport lounge as reward    |
-|       preferred reward cashback available       |        if user wants cashback or not        |
-|      preferred reward cashback percentage       | how much cashback percentage user wants etc |
-|         preferred reward luxury resort          |                                             |
-|         preferred reward insurance plan         |                                             |
-|        preferred reward death insurance         |                                             |
-|        preferred reward travel emergency        |                                             |
-|          preferred reward fine dining           |                                             |
-|        preferred reward buffet discount         |                                             |
-|        preferred reward medical discount        |                                             |
-|        preferred reward airlines ticket         |                                             |
-|          preferred cash withdrawal fee          |                                             |
-| preferred cash withdrawal limit per transaction |                                             |
-|     preferred cash withdrawal limit per day     |                                             |
+|            TABLE: USER (ATTRIBUTES)             |                  Description of Attributes                   |
+| :---------------------------------------------: | :----------------------------------------------------------: |
+|                     User id                     |              Id of user to log in (Primary key)              |
+|                      name                       |                       Name of the user                       |
+|                      email                      |                    Email used for sign up                    |
+|                    password                     |                  User's password to log in                   |
+|                    is_admin                     |                   Boolean. True or False.                    |
+|                       age                       |                          User's age                          |
+|                     address                     |                        User's address                        |
+|               professional status               |                    Current status of user                    |
+|               preferred card type               |                       credit vs debit                        |
+|             preferred interest rate             |    how much credit interest rate is preferred by the user    |
+|           preferred max credit limit            |      what is the max credit limit tolerable to the user      |
+|              preferred annual fee               |          how much annual fee is user willing to pay          |
+|               visa vs master card               |          whether the user wants visa or mastercard           |
+|         preferred reward airport lounge         |            if user wants airport lounge as reward            |
+|       preferred reward cashback available       |                if user wants cashback or not                 |
+|      preferred reward cashback percentage       |         how much cashback percentage user wants etc          |
+|         preferred reward luxury resort          |            if the user wants discount to resorts             |
+|         preferred reward insurance plan         |          if the user needs insurance plan discount           |
+|        preferred reward death insurance         |             if the user requires death insurance             |
+|        preferred reward travel emergency        |       if the user requires travel emergency assistance       |
+|          preferred reward fine dining           |          if the user requires fine dining discount           |
+|        preferred reward buffet discount         |             if the user requires buffet discount             |
+|        preferred reward medical discount        |            if the user requires medical discount             |
+|        preferred reward airlines ticket         |             if the user requires airlines ticket             |
+|          preferred cash withdrawal fee          |     how much cash withdrawal fee is expected by the user     |
+| preferred cash withdrawal limit per transaction | how much cash withdrawal limit is minimally required by the user for each transaction |
+|     preferred cash withdrawal limit per day     | how much cash withdrawal limit is minimally required by the user per day |
 
 
 
@@ -157,15 +182,19 @@ The final product for this project is a responsive web application which will ta
 
 ## Front End
 
-
+HTML,CSS, Bootstrap, Vue.js/Angular.js
 
 ## Back End
 
+Flask/Django, Python.
 
+## Machine Learning
+
+Python packages : Scikit-learn, Surprise(Recommender Systems package)
 
 ## Deployment
 
-
+Docker and Heroku.
 
 
 
@@ -173,17 +202,15 @@ The final product for this project is a responsive web application which will ta
 
 ## Task List and Assignee Name
 
-| Task Name | Assignee |
-| --------- | -------- |
-|           |          |
-|           |          |
-|           |          |
-|           |          |
-|           |          |
+| Task Name                                        | Assignee   |
+| ------------------------------------------------ | ---------- |
+| Building Recommender Engine + project management | Mayeesha   |
+| Front end development + backend management       | Sakib      |
+| Data collection for recommender system           | Novera     |
+| Backend Development + Database Work              | Pranto     |
+| Database primary management                      | Tashfique. |
 
 
-
-# 6 References 
 
 
 
