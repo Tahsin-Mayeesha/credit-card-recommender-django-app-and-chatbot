@@ -46,7 +46,7 @@ The final product for this project is a responsive web application which will ta
 
 ## ER Diagram
 
-![](C:\Users\Novera\Downloads\erdplus-diagram.png)
+![](diagrams/erdplus-diagram.png)
 
 ## Table Descriptions
 
