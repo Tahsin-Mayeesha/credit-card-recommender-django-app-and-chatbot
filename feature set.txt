@@ -64,3 +64,21 @@ reward medical discount
 reward airlines ticket
 upgrade possible
 sms service available
+
+BANK : 
+
+bank id
+bank name
+number of ATMS available
+
+
+
+USER BANK
+user id
+bank id
+
+
+USER CARD
+user id
+card id
+card recommendation score.
