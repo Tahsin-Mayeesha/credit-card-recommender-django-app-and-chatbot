@@ -24,7 +24,15 @@ Architecture diagram.
 
 
 
-# 3 Database Definitions
+# 3 UML Class Diagrams
+
+
+
+# 4 UML Sequence Diagram
+
+
+
+# 5 Database Definitions
 
 
 
@@ -39,12 +47,6 @@ Architecture diagram.
 ## Table Descriptions
 
 
-
-## ORM Class Definitions
-
-
-
-## ORM Class Diagram
 
 
 
