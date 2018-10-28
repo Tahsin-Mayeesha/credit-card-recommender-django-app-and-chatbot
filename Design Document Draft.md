@@ -32,9 +32,9 @@ Recommender systems where we don't already have a large amount of user and item 
 
 To tackle this situation instead of user-user similarity, we consider item-item similarity first. If we know user preferences, we can take those information, send to the model, and the model will send us the similar cards according to those preferences. A diagram showing how the machine learning pipeline will be implemented is given below.
 
-![ ](C:\Users\HP\nsu.fall.2018.cse327.1.t2\diagrams\ml_dataflow.png)
+![ ](diagrams\ml_dataflow.png)
 
-## 2.3 Model-View-Controller Perspective
+## 2.3 Model-View-Controller Implementation
 
 Since we have the machine learning intuition for how the product will work behind the scenes, instead of machine learning we will focus on explaining our application architecture MVC and how it fits in with the  ML parts. When considering the backend of our web application, we can consider the recommender as simple component of our backend logic or subset of our controller code. Recommender API also interacts with the model(database), but it does it as part of the controller class which also handles the search functionalities and user authentication. 
 
@@ -48,13 +48,15 @@ In our implementation the model, view and controller is divided like this :
 
 # 3 UML Class Diagrams
 
+A simplified view of how the model, view and controller classes interact are shown below with UML class diagrams. View classes have been clearly separated from the model and controller. Controller exchanges data between the model and view when using the GetRecommendation class. Again, search functionalities will be implemented similarly where ViewSearch class will be responsible for showing the search results and controller will exchange data between Search class and ViewSearch. Our fundamental model entities are users and cards to build association between users and credit cards via the recommender.
 
+![](diagrams/uml class diagram.png)
 
 ## 3.1 UML Sequence Diagram
 
 Shows how the user request triggers multiple actions in the backend and how message passing between different components happen until the controller sends the results back to the view. Green bars signal how much time a particular component was active.
 
-![ ](C:\Users\HP\nsu.fall.2018.cse327.1.t2\diagrams\uml sequence.png)
+![ ](diagrams\uml sequence.png)
 
 # 5 Database Definitions
 

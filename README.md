@@ -1,3 +1,5 @@
+![](diagrams/cartoon.jpg)
+
 # Credit Card Recommendation System #
 
 Project repository for CSE327 Section 1 Team 2.
