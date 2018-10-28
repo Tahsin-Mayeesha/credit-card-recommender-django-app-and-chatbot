@@ -56,7 +56,7 @@ A simplified view of how the model, view and controller classes interact are sho
 
 Shows how the user request triggers multiple actions in the backend and how message passing between different components happen until the controller sends the results back to the view. Green bars signal how much time a particular component was active.
 
-![ ](diagrams/uml sequence.png)
+![](diagrams/uml_sequence.png)
 
 # 5 Database Definitions
 
