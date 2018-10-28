@@ -32,7 +32,7 @@ Recommender systems where we don't already have a large amount of user and item 
 
 To tackle this situation instead of user-user similarity, we consider item-item similarity first. If we know user preferences, we can take those information, send to the model, and the model will send us the similar cards according to those preferences. A diagram showing how the machine learning pipeline will be implemented is given below.
 
-![ ](diagrams\ml_dataflow.png)
+![ ](diagrams/ml_dataflow.png)
 
 ## 2.3 Model-View-Controller Implementation
 
@@ -50,13 +50,13 @@ In our implementation the model, view and controller is divided like this :
 
 A simplified view of how the model, view and controller classes interact are shown below with UML class diagrams. View classes have been clearly separated from the model and controller. Controller exchanges data between the model and view when using the GetRecommendation class. Again, search functionalities will be implemented similarly where ViewSearch class will be responsible for showing the search results and controller will exchange data between Search class and ViewSearch. Our fundamental model entities are users and cards to build association between users and credit cards via the recommender.
 
-![](diagrams/uml class diagram.png)
+![](diagrams/uml_class_diag.png)
 
 ## 3.1 UML Sequence Diagram
 
 Shows how the user request triggers multiple actions in the backend and how message passing between different components happen until the controller sends the results back to the view. Green bars signal how much time a particular component was active.
 
-![ ](diagrams\uml sequence.png)
+![ ](diagrams/uml sequence.png)
 
 # 5 Database Definitions
 
