@@ -120,7 +120,7 @@ Shows how the user request triggers multiple actions in the backend and how mess
 |               card name               |                         name of card                         |
 |               card type               |                  if card is credit or debit                  |
 |               bank name               |      bank the card is from, foreign key from bank table      |
-|           minimum age limit           |                minimum age for card approval                 |
+|        cardholder minimum age         |                minimum age for card approval                 |
 |            card issue fee             |                fee required for issuing card                 |
 |             interest rate             |              interest rate for the credit card               |
 |              annual fee               |                 annual fee given to the bank                 |

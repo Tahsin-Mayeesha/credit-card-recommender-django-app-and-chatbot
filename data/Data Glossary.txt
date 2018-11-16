@@ -2,3 +2,12 @@ SOCB = State Owned Commercial Bank
 SDB = State Owned specialized bank
 PCB = Private Commercial Bank
 FCB = Foreign commercial Bank
+EMI = Equated monthly installment
+
+
+Banks not added yet   : 
+
+EBL Bank
+Marcentile Bank
+National Bank
+Standard Bank
