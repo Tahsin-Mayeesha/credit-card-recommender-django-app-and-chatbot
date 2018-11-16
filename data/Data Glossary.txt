@@ -1,0 +1,4 @@
+SOCB = State Owned Commercial Bank
+SDB = State Owned specialized bank
+PCB = Private Commercial Bank
+FCB = Foreign commercial Bank
