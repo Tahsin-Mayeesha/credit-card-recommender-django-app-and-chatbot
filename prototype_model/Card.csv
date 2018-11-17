@@ -1,0 +1,167 @@
+Card Name,Bank Name,URL,Card Type,Interest Rate(%),Cash Withdrawal Limit Per transaction,Cash withdrawal Limit Per day,Credit Limit(Max),International Transaction Available,Balance Transfer Available,Dual currency,reward_supplementary_card,reward_airport_lounge,reward_cashback_available,reward luxary resort/hotel,reward insurance plan,reward travel benefits,reward fine dining,reward buffet discount,reward medical discount,reward_shopping,reward airlines ticket,reward point program,EMI available
+Sonali Debit Card,Sonali Bank Limited,https://www.sonalibank.com.bd/debit_Card.php,Debit,0,30000,30000,N/A,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
+Janata Debit Card,Janata Bank Limited,http://www.janatabank-bd.com/atm-services/,Debit,0,N/G,N/G,N/A,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
+Agrani Debit Card,Agrani Bank Limited,https://www.agranibank.org/debit_card.php,Debit,0,N/G,N/G,N/A,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
+Rupali Debit Card,Rupali Bank Limited,http://www.rupalibank.org/,Debit,0,20000,50000,N/A,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
+Krishi Bank Debit Card,Bangladesh Krishi Bank,http://www.krishibank.org.bd/atm-service/,Debit,0,20000,20000,N/A,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
+AB Bank Debit Card,AB Bank,http://abbl.com/ebiz/cards/debit-card/,Debit,0,200000,300000,N/A,T,F,T,F,F,F,F,F,T,F,F,F,F,F,F,F
+AB Bank World MasterCard,AB Bank,http://abbl.com/ebiz/cards/credit-card/world-master-card/,Credit,N/G,500000,500000,1000000,T,T,T,T,T,F,T,F,T,T,T,F,T,F,F,T
+AB Bank Titanium MasterCard,AB Bank,http://abbl.com/ebiz/cards/credit-card/titanium-mastercard-credit-card/,Credit,N/G,500000,500000,1000000,T,T,T,T,T,F,T,F,T,T,T,F,T,F,F,T
+AB Bank Gold MasterCard,AB Bank,http://abbl.com/ebiz/cards/credit-card/gold-card/,Credit,N/G,250000,250000,500000,T,T,T,T,T,F,T,F,T,T,T,F,T,F,F,T
+Bank Asia Debit Card,Bank Asia Limited,http://www.bankasia-bd.com/home/debit_card,Debit,0,N/G,N/G,N/A,F,F,F,F,F,F,F,F,F,F,F,F,F,F,T,F
+Bank Asia Visa Classic Local Card,Bank Asia Limited,http://www.bankasia-bd.com/home/visa_classic_card_local,Credit,2,N/G,N/G,99000,F,F,F,F,T,F,F,T,F,F,F,F,F,F,T,T
+Bank Asia Visa Gold Local Card,Bank Asia Limited,http://www.bankasia-bd.com/home/visa_gold_card,Credit,2,N/G,N/G,500000,F,F,F,F,F,F,F,T,F,F,F,F,T,F,T,T
+Bank Asia Visa Classic Dual Card,Bank Asia Limited,http://www.bankasia-bd.com/home/visa_classic_card_dual,Credit,2,N/G,N/G,99000,T,F,T,F,F,F,F,T,F,F,F,F,T,F,T,T
+Bank Asia Visa Gold Dual Card,Bank Asia Limited,http://www.bankasia-bd.com/home/visa_gold_dual,Credit,2,N/G,N/G,500000,T,F,T,F,F,F,F,T,F,F,F,F,T,F,T,T
+Bank Asia Virtual Card,Bank Asia Limited,http://www.bankasia-bd.com/home/virtual_card_service,Virtual Prepaid,0,N/G,N/G,N/G,T,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F
+Bank Asia SME Card,Bank Asia Limited,http://www.bankasia-bd.com/home/sme_card,Credit,24,N/G,N/G,1000000,T,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F
+Bank Asia Visa Butterfly Card,Bank Asia Limited,http://www.bankasia-bd.com/home/visa_butterfly_card,Credit(Women only),2,N/G,N/G,500000,T,F,T,F,F,F,F,F,F,F,F,F,F,F,T,F
+Bank Asia Hajj Card,Bank Asia Limited,http://www.bankasia-bd.com/home/hajj_card,Prepaid International,0,N/G,N/G,N/A,T,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F
+Brac Bank Signature Card,BRAC Bank Limited,https://www.bracbank.com/signature.php,Credit,0,N/G,N/G,N/G,T,F,T,F,T,F,T,F,T,T,T,F,T,T,T,F
+Brac Bank Platinum Card,BRAC Bank Limited,https://www.bracbank.com/platinum.php,Credit,N/G,N/G,N/G,N/G,F,F,F,F,T,F,T,F,T,T,T,F,T,T,T,F
+Brac Bank Gold Card,BRAC Bank Limited,https://www.bracbank.com/gold.php,Credit,N/G,N/G,N/G,N/G,F,F,F,F,F,F,T,F,F,T,T,F,T,F,T,F
+Brac Bank Classic Card,BRAC Bank Limited,https://www.bracbank.com/classic.php,Credit,N/G,N/G,N/G,N/G,F,F,F,F,F,F,T,F,F,F,F,F,T,F,T,F
+Brac Bank  Planet Debit Card,BRAC Bank Limited,https://www.bracbank.com/debit-card.php,Debit,0,N/G,300000,N/A,F,F,F,F,F,F,F,F,F,T,T,F,T,F,F,F
+Brac Bank Hajj Card ,BRAC Bank Limited,https://www.bracbank.com/Hajj-Prepaid-Card.php,Prepaid,N/G,N/G,N/G,28000,T,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F
+Brac Bank Travel Card,BRAC Bank Limited,https://www.bracbank.com/Travel-Card.php,Prepaid,N/G,N/G,N/G,N/G,T,F,T,F,T,F,F,F,F,F,F,F,F,F,F,F
+City Bank Visa Electron Debit Card,City Bank Limited,https://www.thecitybank.com/city_Debit-Card.php,Debit,0,20000,50000,N/A,F,F,F,F,F,F,F,F,F,T,T,F,T,F,F,F
+City Bank MasterCard Platinum International Debit Card,City Bank Limited,https://www.thecitybank.com/MasterCard.php,Debit,0,20000,50000,N/A,T,F,T,F,T,F,F,F,F,F,F,F,F,F,F,F
+City Bank American Express Credit Card,City Bank Limited,https://www.thecitybank.com/new_Credit_Card.php,Credit,N/G,N/G,N/G,N/G,T,F,T,F,T,F,T,T,T,T,T,T,T,T,F,F
+Dhaka Bank Credit Card,Dhaka Bank,https://dhakabankltd.com/credit-card/,Credit,N/G,N/G,N/G,500000,T,F,F,T,F,F,T,F,F,T,F,T,T,T,F,F
+Dhaka Bank Debit Card,Dhaka Bank,https://dhakabankltd.com/debit-card/,Debit,N/G,N/G,N/G,N/G,T,F,F,F,F,F,T,F,F,T,F,T,T,T,F,F
+Dutch Bangla MasterCard Titanium Credit Card,Dutch Bangla Bank Limited,https://www.dutchbanglabank.com/electronic-banking/titanium.html,Credit ,N/G,N/G,N/G,2000000,T,F,F,T,F,F,F,F,F,F,F,F,T,F,F,F
+Dutch Bangla VISA platinum Credit Card,Dutch Bangla Bank Limited,https://www.dutchbanglabank.com/electronic-banking/platinum.html,Credit ,N/G,N/G,N/G,2000000,T,F,F,F,T,F,T,F,T,T,F,F,F, F,F,F
+Dutch Bangla VISA Classic Local Credit Card,Dutch Bangla Bank Limited,https://www.dutchbanglabank.com/electronic-banking/visaclasicloaclcrdt.html,Credit ,N/G,N/G,N/G,"99,999.00",F,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F
+Dutch Bangla VISA Gold Local Credit Card,Dutch Bangla Bank Limited,https://www.dutchbanglabank.com/electronic-banking/visagoldlocalcredit.html,Credit ,N/G,N/G,N/G,500000,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
+Dutch Bangla VISA classic International Credit Card,Dutch Bangla Bank Limited,https://www.dutchbanglabank.com/electronic-banking/visaclassicinternationalcredit.html,Credit ,N/G,N/G,N/G,"99,999.00",T,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F
+Dutch Bangla VISA Gold International Credit Card,Dutch Bangla Bank Limited,https://www.dutchbanglabank.com/electronic-banking/visagoldintcredit.html,Credit ,N/G,N/G,N/G,"500,000.00",T,F,F,F,F,F,F,F,F,F,F,F,T,T,F,F
+Dutch Bangla MasterCard Gold International Credit Card,Dutch Bangla Bank Limited,https://www.dutchbanglabank.com/electronic-banking/mastergoldlintcredit.html,Credit ,N/G,N/G,N/G,"500,000.00", T,F,F,F,F,F,F,F,F,F,F,F,T,T,F,F
+Dutch Bangla MasterCard Classic Local Credit Card,Dutch Bangla Bank Limited,https://www.dutchbanglabank.com/electronic-banking/masterclassiclocalcredit.html,Credit ,N/G,N/G,N/G,"99,999.00",T,F,F,F,F,F,F,F,F,F,F,F,T,T,F,F
+Dutch Bangla MasterCard Gold Local Credit Card,Dutch Bangla Bank Limited,https://www.dutchbanglabank.com/electronic-banking/mastergoldlocalclassiccredit.html,Credit ,N/G,N/G,N/G,"500,000.00",T,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F
+Dutch Bangla MasterCard Classic International Credit Card,Dutch Bangla Bank Limited,https://www.dutchbanglabank.com/electronic-banking/masterclassicintcredit.html,Credit ,N/G,N/G,N/G,"99,999.00",T,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F
+IFIC Visa Local Classic Card,IFIC Bank Limited,https://www.ificbank.com.bd/visa_local_classic_card.php,Credit,N/G,N/G,N/G,N/G,F,T,F,T,T,F,F,F,F,T,T,F,T,F,F,F
+IFIC Classic Gold Credit Card,IFIC Bank Limited,https://www.ificbank.com.bd/visa_local_gold_card.php,Credit,N/G,N/G,N/G,N/G,F,T,F,F,T,F,F,F,F,F,F,F,T,F,F,F
+IFIC Dual Classic Credit Card,IFIC Bank Limited,https://www.ificbank.com.bd/visa_dual_int_classic_card.php,Credit,N/G,N/G,N/G,"50,000.00",T,T,F,T,T,F,F,F,F,F,F,F,T,F,F,F
+IFIC Dual Gold Credit Card,IFIC Bank Limited,https://www.ificbank.com.bd/visa_dual_int_gold_card.php,Credit,N/G,N/G,N/G,500000,T,T,F,T,T,F,F,F,F,F,F,F,T,F,F,F
+IFIC International Debit Card,IFIC Bank Limited,https://www.ificbank.com.bd/int_debit_card.php,Debit,N/G,N/G,N/G,N/G,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
+Jamuna Bank VISA Classic Credit Card,Jamuna Bank Limited,http://jamunabankbd.com/front/productdetails/27/87/120,Credit,30,N/G,50%,100000,F,T,F,F,F,F,F,F,F,F,F,F,F,F,T,F
+Jamuna Bank VISA Gold Credit Card,Jamuna Bank Limited,http://jamunabankbd.com/front/productdetails/27/87/121,Credit,30,N/G,50%,200000,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F
+Jamuna Bank VISA Dual Gold Credit Card,Jamuna Bank Limited,http://jamunabankbd.com/front/productdetails/27/87/122,Credit,,N/G,N/G,200000,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F,F
+Jamuna Bank Visa Electron Debit Card,Jamuna Bank Limited,http://jamunabankbd.com/front/productdetails/27/87/123,Debit,0,N/G,100000,N/A,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
+Meghna Debit Card,Meghna Bank,https://www.meghnabank.com.bd/mbl/debit_card.php,Debit,0,N/G,N/G,N/A,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F
+Meghna Visa Silver Credit Card,Meghna Bank,https://www.meghnabank.com.bd/mbl/silver_credit_card.php,Credit,30,N/G,N/G,300000,F,T,F,F,F,F,F,F,F,F,F,F,F,F,T,F
+Meghna Visa Gold Credit Card,Meghna Bank,https://www.meghnabank.com.bd/mbl/gold_credit_card.php,Credit,18,N/G,N/G,500000,T,T,T,T,F,F,T,F,F,F,F,F,T,F,T,T
+MDB Visa Gold Dual Credit Card,Midland Bank,https://www.midlandbankbd.net/mdb-credit-card/,Credit,,N/G,N/G,199000,F,T,F,T,F,F,T,F,T,T,T,T,T,F,T,F
+MDB Visa Platinum Dual Credit Card,Midland Bank,https://www.midlandbankbd.net/mdb-credit-card/,Credit,18,N/G,N/G,500000,F,T,F,T,F,F,T,F,T,T,T,T,T,F,T,T
+MDB Visa Debit Card,Midland Bank,https://www.midlandbankbd.net/debit-card/,Debit,N/G,"50,000.00","50,000.00",N/G,F,F,F,F,F,F,F,F,F,F,F,F,T,F,F,F
+MDB Prepaid Card,Midland Bank,https://www.midlandbankbd.net/mdb-prepaid-card/,Prepaid,N/G,N/G,N/G,N/G,F,F,T,F,F,F,F,F,F,F,F,F,F,F,F,F
+Modhumoti Visa Dual Platinum Credit Card,Modhumoti Bank,https://www.modhumotibankltd.com/modhumoti-visa-dual-platinum-credit-card/,Credit ,N/G,N/G,N/G,"20,00,000.00",T,,,,,,,,,,,,,,,
+Modhumoti Visa Dual Gold Credit Card,Modhumoti Bank,https://www.modhumotibankltd.com/modhumoti-visa-dual-gold-credit-card/,,,,,,,,,,,,,,,,,,,,,
+Modhumoti Visa Dual Classic Credit Card,Modhumoti Bank,https://www.modhumotibankltd.com/modhumoti-visa-dual-classic-credit-card/,,,,,,,,,,,,,,,,,,,,,
+MTB Visa Classic Credit Card,Mutual Trust bank Limited,http://www.mutualtrustbank.com/cards/credit-card/local-classic-credit-card,,,,,,,,,,,,,,,,,,,,,
+MTB Visa Gold Local Credit Card,Mutual Trust bank Limited,http://www.mutualtrustbank.com/cards/credit-card/local-gold-credit-card,,,,,,,,,,,,,,,,,,,,,
+MTB Visa Dual Gold Credit Card,Mutual Trust bank Limited,http://www.mutualtrustbank.com/cards/credit-card/dual-currency-credit-card,,,,,,,,,,,,,,,,,,,,,
+MTB VISA Platinum Credit Card,Mutual Trust bank Limited,http://www.mutualtrustbank.com/cards/credit-card/mtb-visa-platinum-credit-card/,,,,,,,,,,,,,,,,,,,,,
+MTB Visa Signature Credit Card,Mutual Trust bank Limited,http://www.mutualtrustbank.com/cards/credit-card/mtb-visa-signature-credit-card/,,,,,,,,,,,,,,,,,,,,,
+MTB Classic Master Credit Card,Mutual Trust bank Limited,http://www.mutualtrustbank.com/cards/credit-card/mtb-classic-master-credit-card/,,,,,,,,,,,,,,,,,,,,,
+MTB Gold Master Credit Card,Mutual Trust bank Limited,http://www.mutualtrustbank.com/cards/credit-card/mtb-gold-master-credit-card/,,,,,,,,,,,,,,,,,,,,,
+MTB Titanium Master Credit Card,Mutual Trust bank Limited,http://www.mutualtrustbank.com/cards/credit-card/mtb-titanium-master-credit-card/,,,,,,,,,,,,,,,,,,,,,
+MTB World MasterCard Credit Card,Mutual Trust bank Limited,http://www.mutualtrustbank.com/cards/credit-card/mtb-world-mastercard-credit-card/,,,,,,,,,,,,,,,,,,,,,
+MTB Visa Classic Debit Card,Mutual Trust bank Limited,http://www.mutualtrustbank.com/cards/debit-card/,,,,,,,,,,,,,,,,,,,,,
+MTB Visa Platinum Debit Card,Mutual Trust bank Limited,http://www.mutualtrustbank.com/cards/debit-card/,,,,,,,,,,,,,,,,,,,,,
+MTB Visa Signature Debit Card,Mutual Trust bank Limited,http://www.mutualtrustbank.com/cards/debit-card/,,,,,,,,,,,,,,,,,,,,,
+MTB MasterCard Debit Gold,Mutual Trust bank Limited,http://www.mutualtrustbank.com/cards/debit-card/,,,,,,,,,,,,,,,,,,,,,
+MTB MasterCard Debit Titanium,Mutual Trust bank Limited,http://www.mutualtrustbank.com/cards/debit-card/,,,,,,,,,,,,,,,,,,,,,
+MTB MasterCard World Debit,Mutual Trust bank Limited,http://www.mutualtrustbank.com/cards/debit-card/,,,,,,,,,,,,,,,,,,,,,
+NCC Debit Card,National Credit and Commerce Bank Limited,https://www.nccbank.com.bd/index.php/nccbproducts_debitcard,,,,,,,,,,,,,,,,,,,,,
+NCC Visa Credit Card,National Credit and Commerce Bank Limited,https://www.nccbank.com.bd/index.php/nccbproducts_creditcard,,,,,,,,,,,,,,,,,,,,,
+NRB Bank Visa EMV Global Debit Card,NRB Bank Limited,http://www.nrbbankbd.com/debit-cards/,,,,,,,,,,,,,,,,,,,,,
+NRB Bank Visa Credit Card,NRB Bank Limited,http://www.nrbbankbd.com/credit-card/,,,,,,,,,,,,,,,,,,,,,
+NRBC Bank Debit Card,NRB Commercial Bank Limited,https://www.nrbcommercialbank.com/cards/NRBCB/Debit_card,,,,,,,,,,,,,,,,,,,,,
+NRBC Platinum Dual Currency Credit Card,NRB Commercial Bank Limited,https://www.nrbcommercialbank.com/cards/NRBCB/Platinum_Dual_Currency_Credit_card,,,,,,,,,,,,,,,,,,,,,
+NRBC Gold Dual Currency Credit Card,NRB Commercial Bank Limited,https://www.nrbcommercialbank.com/cards/NRBCB/Gold__Dual_Currency_Credit_card,,,,,,,,,,,,,,,,,,,,,
+NRBC Classic Dual Currency Credit Card,NRB Commercial Bank Limited,https://www.nrbcommercialbank.com/cards/NRBCB/Classical__Dual_Currency_Credit_card,,,,,,,,,,,,,,,,,,,,,
+Prime Bank Debit Card,Prime Bank,https://www.primebank.com.bd/index.php/home/debit_cards,,,,,,,,,,,,,,,,,,,,,
+Prime Bank MasterCard Gold Credit Card,Prime Bank,https://www.primebank.com.bd/index.php/home/Prime_Bank_Master_Gold,,,,,,,,,,,,,,,,,,,,,
+Prime Bank Visa Gold Credit Card,Prime Bank,https://www.primebank.com.bd/index.php/home/Prime_Bank_VISA_Gold,,,,,,,,,,,,,,,,,,,,,
+Prime Bank MasterCard Silver Credit Card,Prime Bank,https://www.primebank.com.bd/index.php/home/Prime_Bank_Master_Silver,,,,,,,,,,,,,,,,,,,,,
+Prime Bank Visa Classic Credit Card,Prime Bank,https://www.primebank.com.bd/index.php/home/Prime_Bank_VISA_Classic,,,,,,,,,,,,,,,,,,,,,
+Prime Bank International Credit Card,Prime Bank,https://www.primebank.com.bd/index.php/home/International_Card,,,,,,,,,,,,,,,,,,,,,
+Prime Bank Platinum Credit Card,Prime Bank,https://www.primebank.com.bd/index.php/home/platinum_credit_card,,,,,,,,,,,,,,,,,,,,,
+Prime Bank Hasanah Credit Card,Prime Bank,https://www.primebank.com.bd/index.php/home/hasanah_credit_card,,,,,,,,,,,,,,,,,,,,,
+Prime Bank JCB Credit Card,Prime Bank,https://www.primebank.com.bd/index.php/home/jcb_credit_card,,,,,,,,,,,,,,,,,,,,,
+Trust Bank Platinum Credit Card,Trust Bank,https://www.tblbd.com/TBL-platinum-card,,,,,,,,,,,,,,,,,,,,,
+Trust Bank Visa International Classic Dual Card,Trust Bank,https://www.tblbd.com/visa-international-classic-dual,,,,,,,,,,,,,,,,,,,,,
+Trust Bank Visa International Gold Card,Trust Bank,https://www.tblbd.com/visa-international-gold,,,,,,,,,,,,,,,,,,,,,
+Trust Bank Debit Card,Trust Bank,https://www.tblbd.com/debit-card,,,,,,,,,,,,,,,,,,,,,
+Trust Bank Prepaid Card,Trust Bank,https://www.tblbd.com/prepaid-card,,,,,,,,,,,,,,,,,,,,,
+Trust Hajj Card ,Trust Bank,https://www.tblbd.com/trust-hajj-card,,,,,,,,,,,,,,,,,,,,,
+Trust Proprietary Card,Trust Bank,https://www.tblbd.com/trust-proprietary-card,,,,,,,,,,,,,,,,,,,,,
+Pubali Debit Card,Pubali Bank Limited,https://www.pubalibangla.com/credit-card.asp,,,,,,,,,,,,,,,,,,,,,
+Pubali MasterCard,Pubali Bank Limited,https://www.pubalibangla.com/credit-card.asp,,,,,,,,,,,,,,,,,,,,,
+UCB Debit Card,United Commercial Bank Limited,https://www.ucb.com.bd/index.php?page=retail-banking/cards/debit-card,,,,,,,,,,,,,,,,,,,,,
+UCB Visa Classic Credit Card,United Commercial Bank Limited,https://www.ucb.com.bd/index.php?page=retail-banking/cards/credit-card,,,,,,,,,,,,,,,,,,,,,
+UCB MasterCard Classic Credit Card,United Commercial Bank Limited,https://www.ucb.com.bd/index.php?page=retail-banking/cards/credit-card,,,,,,,,,,,,,,,,,,,,,
+UCB Visa Gold Credit Card,United Commercial Bank Limited,https://www.ucb.com.bd/index.php?page=retail-banking/cards/credit-card,,,,,,,,,,,,,,,,,,,,,
+UCB MasterCard Gold Credit Card,United Commercial Bank Limited,https://www.ucb.com.bd/index.php?page=retail-banking/cards/credit-card,,,,,,,,,,,,,,,,,,,,,
+UCB Visa Platinum Credit Card,United Commercial Bank Limited,https://www.ucb.com.bd/index.php?page=retail-banking/cards/credit-card,,,,,,,,,,,,,,,,,,,,,
+UCB MasterCard Platinum Credit Card,United Commercial Bank Limited,https://www.ucb.com.bd/index.php?page=retail-banking/cards/credit-card,,,,,,,,,,,,,,,,,,,,,
+Standard Charter Visa Platinum Debit Card,Standard Charter,https://www.sc.com/bn/save/visa-debit-card/,,,,,,,,,,,,,,,,,,,,,
+Standard Charter Visa Gold Debit Card,Standard Charter,https://www.sc.com/bn/save/visa-debit-card/,,,,,,,,,,,,,,,,,,,,,
+Standard Charter MasterCard Titanium Credit Card,Standard Charter,https://www.sc.com/bd/credit-cards/credit-card.html,,,,,,,,,,,,,,,,,,,,,
+Standard Charter Visa Signature Credit Card,Standard Charter,https://www.sc.com/bd/credit-cards/credit-card.html,,,,,,,,,,,,,,,,,,,,,
+Standard Charter Platinum Visa Credit Card,Standard Charter,https://www.sc.com/bd/credit-cards/credit-card.html,,,,,,,,,,,,,,,,,,,,,
+Standard Charter Platinum MasterCard Credit Card,Standard Charter,https://www.sc.com/bd/credit-cards/credit-card.html,,,,,,,,,,,,,,,,,,,,,
+Standard Charter Gold Visa Credit Card,Standard Charter,https://www.sc.com/bd/credit-cards/credit-card.html,,,,,,,,,,,,,,,,,,,,,
+Standard Charter Gold MasterCard Credit Card,Standard Charter,https://www.sc.com/bd/credit-cards/credit-card.html,,,,,,,,,,,,,,,,,,,,,
+One Bank Visa Local Debit Card,One Bank,https://www.onebank.com.bd/home/colbrd/debit-card/local/,,,,,,,,,,,,,,,,,,,,,
+One Bank Visa School Banking Local Debit Card,One Bank,https://www.onebank.com.bd/home/colbrd/debit-card/sb/,,,,,,,,,,,,,,,,,,,,,
+One Bank Visa Platinum Credit Card,One Bank,https://www.onebank.com.bd/home/colbrd/credit-cards/platinum,,,,,,,,,,,,,,,,,,,,,
+One Bank Visa Gold Credit Card,One Bank,https://www.onebank.com.bd/home/colbrd/credit-cards/gold/,,,,,,,,,,,,,,,,,,,,,
+One Bank Visa Classic Credit Card,One Bank,https://www.onebank.com.bd/home/colbrd/credit-cards/classic,,,,,,,,,,,,,,,,,,,,,
+One Bank Prepaid Cards(multiple),One Bank,https://www.onebank.com.bd/home/colbrd/prepaid-card/,,,,,,,,,,,,,,,,,,,,,
+Premier Bank Debit Card,Premier Bank,http://premierbankltd.com/pbl/debit-card/,,,,,,,,,,,,,,,,,,,,,
+Premier Bank Gold Credit Card,Premier Bank,http://premierbankltd.com/pbl/gold-card/,,,,,,,,,,,,,,,,,,,,,
+Premier Bank International Credit Card,Premier Bank,http://premierbankltd.com/pbl/international-card/,,,,,,,,,,,,,,,,,,,,,
+Premier Bank Platinum Credit Card,Premier Bank,http://premierbankltd.com/pbl/platinum-card/,,,,,,,,,,,,,,,,,,,,,
+Premier Bank Classic Credit Card,Premier Bank,http://premierbankltd.com/pbl/classic-credit-card/,,,,,,,,,,,,,,,,,,,,,
+Premier Bank Dual Currency Card ,Premier Bank,http://premierbankltd.com/pbl/dual-card/,,,,,,,,,,,,,,,,,,,,,
+Premier prepaid Hajj Card,Premier Bank,http://premierbankltd.com/pbl/prepaid-hajj-card/,,,,,,,,,,,,,,,,,,,,,
+Premier Prepaid Travel Card,Premier Bank,http://premierbankltd.com/pbl/prepaid-travel-card/,,,,,,,,,,,,,,,,,,,,,
+EXIM Islamic Visa Credit Card ,EXIM Bank,http://www.eximbankbd.com/card/VISA_Islamic_Cards,,,,,,,,,,,,,,,,,,,,,
+EXIM Debit Card,EXIM Bank,http://www.eximbankbd.com/card/Debit_Cards,,,,,,,,,,,,,,,,,,,,,
+EXIM Prepaid Card,EXIM Bank,http://www.eximbankbd.com/card/prepaid_Card,,,,,,,,,,,,,,,,,,,,,
+Exim Gift Card,EXIM Bank,http://www.eximbankbd.com/card/gift_Card,,,,,,,,,,,,,,,,,,,,,
+Exim Remittance Card,EXIM Bank,http://www.eximbankbd.com/card/remittance_Card,,,,,,,,,,,,,,,,,,,,,
+Exim Travel Card,EXIM Bank,http://www.eximbankbd.com/card/travel_Card,,,,,,,,,,,,,,,,,,,,,
+Exim Hajj Card,EXIM Bank,http://www.eximbankbd.com/card/hajj_Card,,,,,,,,,,,,,,,,,,,,,
+Islami Bank Khidmah Card,Islami Bank,https://www.islamibankbd.com/advservices/khidmaCard.php,,,,,,,,,,,,,,,,,,,,,
+Islami Bank Remittance Card,Islami Bank,https://www.islamibankbd.com/advservices/advSerRemitCard.php,,,,,,,,,,,,,,,,,,,,,
+La Riba Islamic Credit Card Platinum,Al Arafah,https://www.al-arafahbank.com/platinum-card.php,,,,,,,,,,,,,,,,,,,,,
+La Riba Islamic Credit Card Gold,Al Arafah,https://www.al-arafahbank.com/gold-card.php,,,,,,,,,,,,,,,,,,,,,
+La Riba Islamic Credit Card Silver,Al Arafah,https://www.al-arafahbank.com/silver-card.php,,,,,,,,,,,,,,,,,,,,,
+Al Arafah Debit Card(s),Al Arafah,https://www.al-arafahbank.com/schedule-of-charges-debit-card.php,,,,,,,,,,,,,,,,,,,,,
+La Riba Hajj Card,Al Arafah,https://www.al-arafahbank.com/hajj-card.php,,,,,,,,,,,,,,,,,,,,,
+ICB Islamic Debit Card,ICB Islamic Bank Limited,https://www.icbislamic-bd.com/pages/atm.php,,,,,,,,,,,,,,,,,,,,,
+SJIBL Visa Debit Card,Shahjalal Islami Bank,https://www.sjiblbd.com/Card.php,,,,,,,,,,,,,,,,,,,,,
+SJIBL Prepaid Card,Shahjalal Islami Bank,https://www.sjiblbd.com/Card.php,,,,,,,,,,,,,,,,,,,,,
+SJIBL Prepaid International Card,Shahjalal Islami Bank,https://www.sjiblbd.com/Card.php,,,,,,,,,,,,,,,,,,,,,
+SIBL Credit Card,Social Islami Bank Limited,https://www.siblbd.com/home/credit_card,,,,,,,,,,,,,,,,,,,,,
+Visa Islamic Credit Card(Dual),Social Islami Bank Limited,https://www.siblbd.com/home/gold_classic_visa_card,,,,,,,,,,,,,,,,,,,,,
+Visa Islamic Credit Card(Local),Social Islami Bank Limited,https://www.siblbd.com/home/gold_classic_visa_card_local,,,,,,,,,,,,,,,,,,,,,
+SIBL Zameel Debit Card,Social Islami Bank Limited,https://www.siblbd.com/home/zameel_debit_card,,,,,,,,,,,,,,,,,,,,,
+HSBC ATM Global Card,HSBC,https://www.hsbc.com.bd/1/2/retail-banking/hsbc-select/hsbc-select-features,,,,,,,,,,,,,,,,,,,,,
+Combank Visa Shopping Debit Card,Commercial Bank of Ceylon BD,https://www.combank.net.bd/en/personal/cards/debit-cards,,,,,,,,,,,,,,,,,,,,,
+Combank Platinum Credit Card VISA ,Commercial Bank of Ceylon BD,https://www.combank.net.bd/en/personal/cards/platinum-cards,,,,,,,,,,,,,,,,,,,,,
+Combank Visa Global Gold and Classic,Commercial Bank of Ceylon BD,https://www.combank.net.bd/en/personal/cards/credit-cards,,,,,,,,,,,,,,,,,,,,,
+Al Falah Visa Platinum Credit Card,Al Falah Islami Bank Limited,https://www.bankalfalah.com/personal-banking/cards/credit-cards/alfalah-platinum-visa-credit-card/,,,,,,,,,,,,,,,,,,,,,
+Al Falah Visa Gold Credit Card,Al Falah Islami Bank Limited,https://www.bankalfalah.com/personal-banking/cards/credit-cards/alfalah-visa-gold-credit-cards/,,,,,,,,,,,,,,,,,,,,,
+Al Falah Visa Classic Credit Card,Al Falah Islami Bank Limited,https://www.bankalfalah.com/personal-banking/cards/credit-cards/alfalah-visa-classic-credit-cards/,,,,,,,,,,,,,,,,,,,,,
+Al Falah Ultra Cashback Credit Card,Al Falah Islami Bank Limited,https://www.bankalfalah.com/personal-banking/cards/credit-cards/alfalah-ultra-cashback-card/,,,,,,,,,,,,,,,,,,,,,
+Al Falah MasterCard Titanium Credit Card,Al Falah Islami Bank Limited,https://www.bankalfalah.com/personal-banking/cards/credit-cards/alfalah-titanium-credit-card/,,,,,,,,,,,,,,,,,,,,,
+Al Falah Visa Corporate Card,Al Falah Islami Bank Limited,https://www.bankalfalah.com/personal-banking/cards/credit-cards/alfalah-visa-corporate-card/,,,,,,,,,,,,,,,,,,,,,
+Al Falah Paypak Classic Debit Card,Al Falah Islami Bank Limited,https://www.bankalfalah.com/personal-banking/cards/debit-cards/alfalah-paypak-debit-card/,,,,,,,,,,,,,,,,,,,,,
+Al Falah Visa Classic Debit Card,Al Falah Islami Bank Limited,https://www.bankalfalah.com/personal-banking/cards/debit-cards/classic-debit-card/,,,,,,,,,,,,,,,,,,,,,
+Al Falah Visa Gold Debit Card,Al Falah Islami Bank Limited,https://www.bankalfalah.com/personal-banking/cards/debit-cards/gold-debit-card/,,,,,,,,,,,,,,,,,,,,,
+Al Falah Visa Platinum Debit Card,Al Falah Islami Bank Limited,https://www.bankalfalah.com/personal-banking/cards/debit-cards/platinum-debit-card/,,,,,,,,,,,,,,,,,,,,,
+Al Falah Visa Signature Debit Card,Al Falah Islami Bank Limited,https://www.bankalfalah.com/personal-banking/cards/debit-cards/signature-debit-card/,,,,,,,,,,,,,,,,,,,,,
