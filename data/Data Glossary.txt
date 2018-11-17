@@ -11,3 +11,40 @@ EBL Bank
 Marcentile Bank
 National Bank
 Standard Bank
+South East Bank
+Union Bank
+
+Dropped rows : 
+
+1. Sonali Credit Card. Reason : Multiple categories of cards. Card not open to consumers, only govt. employees and Sonali Bank officers can use it.
+2. Agrani and Janata credit card. Reason : Many N/A values
+3. 
+
+
+
+
+
+Card Name	
+Bank Name	
+URL	
+Card Type	
+Cardholder Minimum Income	
+Interest Rate	
+Cash Withdrawal Limit Per transaction	
+Cash withdrawal Limit Per day	
+Credit Limit	
+International Transaction Available	
+Balance Transfer Available	
+Dual currency	
+reward_supplementary_card	
+reward_airport_lounge	
+reward_cashback_available	
+reward luxary resort/hotel	
+reward insurance plan	
+reward travel benefits	
+reward fine dining	
+reward buffet discount	
+reward medical discount	
+reward_shopping	
+reward airlines ticket	
+EMI available
