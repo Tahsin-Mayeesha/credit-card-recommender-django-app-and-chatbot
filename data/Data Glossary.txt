@@ -27,8 +27,7 @@ Dropped rows :
 Card Name	
 Bank Name	
 URL	
-Card Type	
-Cardholder Minimum Income	
+Card Type		
 Interest Rate	
 Cash Withdrawal Limit Per transaction	
 Cash withdrawal Limit Per day	

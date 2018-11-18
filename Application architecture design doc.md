@@ -80,35 +80,32 @@ Shows how the user request triggers multiple actions in the backend and how mess
 
 ## Table Descriptions
 
-|            TABLE: USER (ATTRIBUTES)             |                  Description of Attributes                   |
-| :---------------------------------------------: | :----------------------------------------------------------: |
-|                     User id                     |              Id of user to log in (Primary key)              |
-|                      name                       |                       Name of the user                       |
-|                      email                      |                    Email used for sign up                    |
-|                    password                     |                  User's password to log in                   |
-|                    is_admin                     |                   Boolean. True or False.                    |
-|                       age                       |                          User's age                          |
-|                     address                     |                        User's address                        |
-|               professional status               |                    Current status of user                    |
-|               preferred card type               |                       credit vs debit                        |
-|             preferred interest rate             |    how much credit interest rate is preferred by the user    |
-|           preferred max credit limit            |      what is the max credit limit tolerable to the user      |
-|              preferred annual fee               |          how much annual fee is user willing to pay          |
-|               visa vs master card               |          whether the user wants visa or mastercard           |
-|         preferred reward airport lounge         |            if user wants airport lounge as reward            |
-|       preferred reward cashback available       |                if user wants cashback or not                 |
-|      preferred reward cashback percentage       |         how much cashback percentage user wants etc          |
-|         preferred reward luxury resort          |            if the user wants discount to resorts             |
-|         preferred reward insurance plan         |          if the user needs insurance plan discount           |
-|        preferred reward death insurance         |             if the user requires death insurance             |
-|        preferred reward travel emergency        |       if the user requires travel emergency assistance       |
-|          preferred reward fine dining           |          if the user requires fine dining discount           |
-|        preferred reward buffet discount         |             if the user requires buffet discount             |
-|        preferred reward medical discount        |            if the user requires medical discount             |
-|        preferred reward airlines ticket         |             if the user requires airlines ticket             |
-|          preferred cash withdrawal fee          |     how much cash withdrawal fee is expected by the user     |
-| preferred cash withdrawal limit per transaction | how much cash withdrawal limit is minimally required by the user for each transaction |
-|     preferred cash withdrawal limit per day     | how much cash withdrawal limit is minimally required by the user per day |
+|            TABLE: USER (ATTRIBUTES)             |                  Description of Attributes                   | Date Type |
+| :---------------------------------------------: | :----------------------------------------------------------: | --------- |
+|                     User id                     |              Id of user to log in (Primary key)              | number    |
+|                      name                       |                       Name of the user                       | str       |
+|                      email                      |                    Email used for sign up                    | str       |
+|                    password                     |                  User's password to log in                   | str       |
+|                    is_admin                     |                   Boolean. True or False.                    | int       |
+|                       age                       |                          User's age                          | int       |
+|                     address                     |                        User's address                        | str       |
+|               professional status               |                    Current status of user                    | str       |
+|               preferred card type               |             credit vs debit vs other categories              | str       |
+|             preferred interest rate             |    how much credit interest rate is preferred by the user    | int       |
+|           preferred max credit limit            |       what is the max credit limit needed for the user       | int       |
+|                 preferred_visa                  |                 whether the user wants visa                  | str(T/F)  |
+|              preferred_mastercard               |              whether the user wants mastercard               | str(T/F)  |
+|         preferred reward airport lounge         |            if user wants airport lounge as reward            | str       |
+|       preferred reward cashback available       |                if user wants cashback or not                 | str       |
+|         preferred reward luxury resort          |            if the user wants discount to resorts             | str       |
+|         preferred reward insurance plan         |          if the user needs insurance plan discount           | str       |
+|        preferred reward travel benefits         |             if the user requires travel benefits             | str       |
+|          preferred reward fine dining           |          if the user requires fine dining discount           | str       |
+|        preferred reward buffet discount         |             if the user requires buffet discount             | str       |
+|        preferred reward medical discount        |            if the user requires medical discount             | str       |
+|        preferred reward airlines ticket         |             if the user requires airlines ticket             | str       |
+| preferred cash withdrawal limit per transaction | how much cash withdrawal limit is minimally required by the user for each transaction | str       |
+|     preferred cash withdrawal limit per day     | how much cash withdrawal limit is minimally required by the user per day | str       |
 
 
 
@@ -118,59 +115,50 @@ Shows how the user request triggers multiple actions in the backend and how mess
 | :-----------------------------------: | :----------------------------------------------------------: |
 |                card id                |                    card id (Primary Key)                     |
 |               card name               |                         name of card                         |
-|               card type               |                  if card is credit or debit                  |
-|               bank name               |      bank the card is from, foreign key from bank table      |
-|        cardholder minimum age         |                minimum age for card approval                 |
-|            card issue fee             |                fee required for issuing card                 |
+|               Bank Name               |                         name of Bank                         |
+|                  URL                  |                           Card URL                           |
+|               Card type               |                  if card is credit or debit                  |
 |             interest rate             |              interest rate for the credit card               |
-|              annual fee               |                 annual fee given to the bank                 |
-|         card replacement fee          |           card replacement fee if the card is lost           |
-|     captured card replacement fee     | card replacement fee if the card is captured in an ATM machine |
-|          cash withdrawal fee          |           cash withdrawal fee for each transaction           |
 | cash withdrawal limit per transaction | maximum amount of money that can be withdrawn in one transaction |
 |     cash withdrawal limit per day     |    maximum amount of money that can be withdrawn per day     |
-|            vat percentage             |              annual VAT percentage for the card              |
-|         minimum credit limit          |            minimum credit limit for credit cards             |
-|         maximum credit limit          |                maximum amount of credit limit                |
-|         interest free period          |                interest free period in months                |
-|        fund transfer facility         | boolean . whether the card can transfer fund with other cards |
+|          Credit Limit (Max)           |                maximum amount of credit limit                |
 |  international transaction available  | boolean. if card can be used for international transaction.  |
-|        dual currency available        |    boolean. if card can be used for multiple currencies.     |
-|           dual currency fee           |                           boolean                            |
-|                is_visa                |                    if card is visa or not                    |
-|             is_mastercard             |                 if card is mastercard or not                 |
+|      Balance transfer available       |             Whether card allows balance transfer             |
+|             dual currency             |    boolean. if card can be used for multiple currencies.     |
+|       reward_supplementary_card       |                if card has supplementary card                |
 |         reward airport lounge         |       if card rewards users with airport lounge usage        |
 |       reward cashback available       |            if card has cashback available or not             |
-|      reward cashback percentage       |               percentage of cashback available               |
 |         reward luxury resort          |                if card awards resort discount                |
 |         reward insurance plan         |           if card awards discounted insurance plan           |
-|   reward accidental death insurance   |             if card awards death insurance plan              |
-|        reward travel emergency        |         if card awards emergency help during travel          |
+|        reward travel benefits         |         if card awards emergency help during travel          |
 |          reward fine dining           |        if card awards fine dining experience discount        |
 |        reward buffet discount         |                if card awards buffet discount                |
 |        reward medical discount        |               if card awards medical discount                |
 |        reward airlines ticket         |                if card awards airlines ticket                |
-|           upgrade possible            |                if card has upgraded versions                 |
-|         sms service available         |              if card has sms based transactions              |
+|        reward_shopping reward         |        if card awards discounts/rewards for shopping         |
+|         reward point program          |                 if card has loyalty programs                 |
+|             EMI available             |          if card has purchase related EMI discounts          |
 
 
 
 
 
-| TABLE: BANK (ATTRIBUTES) | DESCRIPTION OF ATTRIBUTES |
-| :----------------------: | :-----------------------: |
-|         bank id          |      Id of the bank       |
-|        bank name         |       name of bank        |
-| number of ATMS available |      Available ATMs       |
+|    TABLE: BANK (ATTRIBUTES)    | DESCRIPTION OF ATTRIBUTES |
+| :----------------------------: | :-----------------------: |
+|            bank id             |      Id of the bank       |
+|           bank name            |       name of bank        |
+| total number of ATMS available |      Available ATMs       |
 
 
 
 
 
-| TABLE: USER BANK (ATTRIBUTES) |   DESCRIPTION OF ATTRIBUTES    |
-| :---------------------------: | :----------------------------: |
-|            User id            | foreign key(from table 'USER') |
-|            bank id            | foreign key(from table 'BANK') |
+|    TABLE: USER BANK (ATTRIBUTES)     |                  DESCRIPTION OF ATTRIBUTES                   |
+| :----------------------------------: | :----------------------------------------------------------: |
+|               User id                |                foreign key(from table 'USER')                |
+|               bank id                |                foreign key(from table 'BANK')                |
+| number of available ATMs nearby user | geographical feature to indicate how many atms of a specific bank are near user |
+|  number of bank offices nearby user  | geographical feature to indicate how many offices of a specific bank are near user |
 
 
 
@@ -179,7 +167,7 @@ Shows how the user request triggers multiple actions in the backend and how mess
 | TABLE: USER CARD (ATTRIBUTES) |     DESCRIPTION OF ATTRIBUTES     |
 | :---------------------------: | :-------------------------------: |
 |            User id            |  foreign key(from table 'USER')   |
-|            bank id            |  foreign key(from table 'BANK')   |
+|            card id            |  foreign key(from table 'BANK')   |
 |   card recommendation score   | AI will recommend a card for user |
 
 
