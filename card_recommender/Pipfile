@@ -10,6 +10,7 @@ django = "==2.1"
 numpy = "*"
 pandas = "*"
 scikit-learn = "*"
+django-import-export = "*"
 
 [requires]
 python_version = "3.7"
