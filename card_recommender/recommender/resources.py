@@ -1,10 +1,12 @@
 from import_export import resources
-from .models import Person, Card
+from .models import Recommendation,Card
 
-class PersonResource(resources.ModelResource):
-    class Meta:
-        model = Person
+
         
 class CardResource(resources.ModelResource):
     class Meta:
         model = Card
+        
+class RecommendationResource(resources.ModelResource):
+    class Meta:
+        model = Recommendation

@@ -1,16 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
-
-
-
-class Person(models.Model):
-    name = models.CharField(max_length=30)
-    email = models.EmailField(blank=True)
-    birth_date = models.DateField()
-    location = models.CharField(max_length=100, blank=True)
-    status = models.BooleanField(default =False)
-
 
 class Card(models.Model):
     card_name  = models.CharField(max_length=150)
@@ -36,4 +27,13 @@ class Card(models.Model):
     reward_shopping           = models.BooleanField(default =False)                 
     reward_airlines_ticket    = models.BooleanField(default =False)                 
     reward_point_program      = models.BooleanField(default =False)                 
-    reward_emi_available      = models.BooleanField(default =False)                 
+    reward_emi_available      = models.BooleanField(default =False)
+    users = models.ManyToManyField(User,
+                                   through="Recommendation",
+                                   through_fields = ('card','user'))
+
+class Recommendation(models.Model):
+    card = models.ForeignKey(Card,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    recommendation_score = models.FloatField()
+    
