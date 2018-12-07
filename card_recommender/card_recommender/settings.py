@@ -56,7 +56,7 @@ ROOT_URLCONF = 'card_recommender.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,3 +122,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 IMPORT_EXPORT_USE_TRANSACTIONS = True
+LOGIN_REDIRECT_URL = '/'
