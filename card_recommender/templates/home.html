@@ -1,16 +1,19 @@
 
 <!-- templates/home.html -->
 {% extends 'base.html' %}
+{% load socialaccount %}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
 {% if user.is_authenticated %}
   Hi {{ user.username }}!
-  <p><a href="{% url 'logout' %}">logout</a></p>
+  <p><a href="{% url 'account_logout' %}">logout</a></p>
 {% else %}
   <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a>
-  <a href="{% url 'signup' %}">sign up </a>
+  <a href="{% url 'account_login' %}">login</a>
+  <a href="{% url 'account_signup' %}">sign up </a>
+  <p><a href="{% provider_login_url 'google' %}">Log In with Gmail</a></p>
+
 {% endif %}
 {% endblock %}
