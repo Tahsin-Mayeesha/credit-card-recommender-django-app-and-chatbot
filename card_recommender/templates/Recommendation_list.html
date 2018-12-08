@@ -4,23 +4,25 @@
 {% block content %}
 {% if user.is_authenticated %}
     <p>These are your recommendations, {{user.username}} </p>
+    
+    
     <ul>
-    {% for card in view.recommended_cards %}
+    {% for card in view.test_card %}
     <li>
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 25rem;">
     <div class="card-body">
-    <h5 class="card-title">{{card.name}}</h5>
+    <h5 class="card-title">{{card.card_name}}</h5>
     <p class="card-text">
-    Bank : {{card.bank}}<br>
+    Bank : {{card.bank_name}}<br>
     Score : {{card.score}}
     </p>
-    <a href="#" class="btn btn-primary">View</a>
+    <a href= "{{ card.url }}" class="btn btn-primary">View</a>
     </li>
     <br>
     {% endfor %}
     </ul>
-  </div>
-</div>
+    </div>
+    </div>
 {% else %}
   <p>You are not logged in</p>
 

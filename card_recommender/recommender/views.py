@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from .forms import ContactForm
-
+from .models import Card
 # Create your views here.
 
 from django.http import HttpResponse
@@ -35,6 +35,22 @@ class RecommendationListView(TemplateView):
     def recommended_cards(self):
         return [{'name':"Card 1","bank":"Bank 1","score":0.987},
                 {"name":"Card 2","bank":"Bank 2","score":0.765}]
+    
+    def test_card(self):
+        recommendation_indices = [13,45,87,23,11]
+        recommendation_scores = [0.98,0.54,0.32,0.30,0.24]
+        results = []
+        for index in [0,1,2,3,4]:
+            card = Card.objects.get(pk=recommendation_indices[index])
+            result_dict = {}
+            result_dict['card_name'] = card.card_name
+            result_dict['bank_name'] = card.bank_name
+            result_dict['url'] = card.url
+            result_dict['score'] = recommendation_scores[index]
+            results.append(result_dict)
+        return results
+    
+            
         
         
 def contact_page(request):
