@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic.base import TemplateView
 
 # Create your views here.
 
@@ -18,10 +19,14 @@ def aboutpage(request):
 def user_preference(request):
     return HttpResponse("User Profile Page")
 
-def recommendations(request):
-    return HttpResponse("Recommended Cards")
+#def recommendations(request):
+#    return HttpResponse("Recommended Cards")
 
 class SignUp(generic.CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'signup.html'
+    
+    
+class RecommendationView(TemplateView):
+    template_name = "recommendation.html"
