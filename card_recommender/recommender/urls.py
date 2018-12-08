@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import aboutpage,user_preference,SignUp,RecommendationListView
+from .views import aboutpage,user_preference,SignUp,RecommendationListView,contact_page
 from django.views.generic.base import TemplateView # new
 
 
@@ -8,4 +8,6 @@ urlpatterns = [path('', TemplateView.as_view(template_name='home.html'), name='h
                path('preferences/',user_preference,name="preferences"),
                path('recommendations/',RecommendationListView.as_view(),name="recommendations"),
                path('signup/', SignUp.as_view(), name='signup'),
+               path('contact/', contact_page,name='contact'),
+
                ]

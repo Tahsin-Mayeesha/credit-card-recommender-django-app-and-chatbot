@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load socialaccount %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <p>These are your recommendations, {{user.username}} </p>
+    <ul>
+    {% for card in view.recommended_cards %}
+    <li>
+    <div class="card" style="width: 18rem;">
+    <div class="card-body">
+    <h5 class="card-title">{{card.name}}</h5>
+    <p class="card-text">
+    Bank : {{card.bank}}<br>
+    Score : {{card.score}}
+    </p>
+    <a href="#" class="btn btn-primary">View</a>
+    </li>
+    <br>
+    {% endfor %}
+    </ul>
+  </div>
+</div>
+{% else %}
+  <p>You are not logged in</p>
+
+{% endif %}
+{% endblock %}
