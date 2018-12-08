@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
+from django.views.generic import ListView
+from .models import Recommendation
 
 # Create your views here.
 
@@ -28,5 +30,8 @@ class SignUp(generic.CreateView):
     template_name = 'signup.html'
     
     
-class RecommendationView(TemplateView):
-    template_name = "recommendation.html"
+class RecommendationListView(ListView):
+    queryset = Recommendation.objects.all()
+    template_name = "products/Recommendation_list.html"
+    
+    

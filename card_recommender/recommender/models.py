@@ -37,3 +37,4 @@ class Recommendation(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     recommendation_score = models.FloatField()
     
+

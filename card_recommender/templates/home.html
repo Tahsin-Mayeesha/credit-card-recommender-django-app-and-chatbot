@@ -8,17 +8,20 @@
 {% block content %}
 {% if user.is_authenticated %}
   Hi {{ user.username }}!
+  <!--
   <p><a href="{% url 'account_logout' %}">logout</a></p>
   <h1> Credit Card Recommendation TEST </h1>
-  
+  -->
   
   
   
 {% else %}
   <p>You are not logged in</p>
+  <!--
   <a href="{% url 'account_login' %}">login</a>
   <a href="{% url 'account_signup' %}">sign up </a>
   <p><a href="{% provider_login_url 'google' %}">Log In with Gmail</a></p>
+  -->
 
 {% endif %}
 {% endblock %}
