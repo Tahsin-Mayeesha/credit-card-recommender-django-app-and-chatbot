@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
-from .forms import ContactForm
+from .forms import ContactForm,PreferenceForm
 from .models import Card
 # Create your views here.
 
@@ -17,11 +17,23 @@ def homepage(request):
 def aboutpage(request):
     return HttpResponse("About Page")
 
-def user_preference(request):
-    return HttpResponse("User Profile Page")
+#def user_preference(request):
+#    return render(request,'preferences.html')
 
 #def recommendations(request):
 #    return HttpResponse("Recommended Cards")
+    
+from django.views.generic.edit import FormView
+
+class PreferenceView(FormView):
+    template_name = 'preferences.html'
+    form_class = PreferenceForm
+    success_url = '/recommendations/'
+
+    def form_valid(self, form):
+        # This method is called when valid form data has been POSTed.
+        # It should return an HttpResponse.
+        return super().form_valid(form)
 
 class SignUp(generic.CreateView):
     form_class = UserCreationForm

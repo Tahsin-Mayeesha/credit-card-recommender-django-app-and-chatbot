@@ -13,3 +13,18 @@ class ContactForm(forms.Form):
         if not "gmail.com" in email:
             raise forms.ValidationError("Email has to be gmail.com")
         return email
+    
+    
+
+class PreferenceForm(forms.Form):
+    MY_CHOICES = (
+    ('credit', 'Credit'),
+    ('debit', 'Debit'),
+    ('prepaid', 'Prepaid'),
+)
+    first_name = forms.CharField(label = "Name")
+    age = forms.IntegerField(label="Age")
+    address = forms.CharField(label="Address")
+    card_type = forms.ChoiceField(choices = MY_CHOICES,label="Card Type")
+
+    
