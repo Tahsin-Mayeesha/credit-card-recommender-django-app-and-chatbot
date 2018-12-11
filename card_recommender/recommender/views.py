@@ -14,8 +14,7 @@ from django.views import generic
 def homepage(request):
     return render(request, 'home.html')
 
-def aboutpage(request):
-    return HttpResponse("About Page")
+
 
 #def user_preference(request):
 #    return render(request,'preferences.html')
@@ -29,10 +28,16 @@ class PreferenceView(FormView):
     template_name = 'preferences.html'
     form_class = PreferenceForm
     success_url = '/recommendations/'
-
+    
     def form_valid(self, form):
         # This method is called when valid form data has been POSTed.
         # It should return an HttpResponse.
+        card_type = form.cleaned_data['card_type']
+        name = form.cleaned_data['name']
+        test = form.cleaned_data['test']
+        print(name)
+        print(card_type)
+        print(test)
         return super().form_valid(form)
 
 class SignUp(generic.CreateView):

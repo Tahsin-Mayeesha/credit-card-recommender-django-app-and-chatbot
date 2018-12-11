@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 {% load socialaccount %}
+{% load crispy_forms_tags %}
+
 {% block content %}
 {% if user.is_authenticated %}
+
+<div class="container">
 <form method="post">{% csrf_token %}
-    {{ form.as_p }}
+    {{ form|crispy }}
     <input type="submit" value="Submit">
 </form>
+</div>
 {% else %}
   <p>You are not logged in</p>
 
