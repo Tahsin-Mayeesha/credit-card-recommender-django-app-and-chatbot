@@ -77,12 +77,12 @@ class PreferenceForm(forms.Form):
     card_type = forms.ChoiceField(choices = CARD_TYPE_CHOICES, widget = forms.RadioSelect, label="Card Type")
     
     
-    bank = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple,
-                                     choices=BANK_CHOICES,
-                                     label="Choose preferred banks among the currently supported ones.")
+    #bank = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple,
+     #                                choices=BANK_CHOICES,
+     #                                label="Choose preferred banks among the currently supported ones.")
     
-    rewards = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple,
-                                        choices=REWARD_CHOICES,
-                                        label = "Choose the required rewards.")
+    #rewards = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple,
+    #                                    choices=REWARD_CHOICES,
+    #                                    label = "Choose the required rewards.")
 
     

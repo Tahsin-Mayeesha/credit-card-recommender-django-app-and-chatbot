@@ -28,16 +28,17 @@ class PreferenceView(FormView):
     template_name = 'preferences.html'
     form_class = PreferenceForm
     success_url = '/recommendations/'
+
     
+        
     def form_valid(self, form):
         # This method is called when valid form data has been POSTed.
         # It should return an HttpResponse.
         card_type = form.cleaned_data['card_type']
         name = form.cleaned_data['name']
-        test = form.cleaned_data['test']
+        self.request.session["test_data"] = "number"
         print(name)
         print(card_type)
-        print(test)
         return super().form_valid(form)
 
 class SignUp(generic.CreateView):
@@ -49,9 +50,13 @@ class SignUp(generic.CreateView):
 class RecommendationListView(TemplateView):
     template_name = "recommendation_list.html"
     
+    
     def recommended_cards(self):
         return [{'name':"Card 1","bank":"Bank 1","score":0.987},
                 {"name":"Card 2","bank":"Bank 2","score":0.765}]
+    
+    def test_data_passing(self):
+        return self.request.session['test_data']
     
     def test_card(self):
         recommendation_indices = [13,45,87,23,11]
