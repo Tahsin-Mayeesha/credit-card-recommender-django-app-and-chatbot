@@ -1,5 +1,6 @@
 from sklearn.externals import joblib
 import numpy as np
+from .models import Card,Recommendation
 
 
 feature_list = ['international_transaction_available', 'balance_transfer_available',
@@ -35,11 +36,33 @@ full_dir = "recommender/model/knn.pickle"
 model = joblib.load(os.path.realpath(full_dir))
 
 
-def generate_recommendations(feature_list,user_input,model=model):
+def generate_recommendations(user,feature_list,user_input,model=model):
     query = [1 if entry in user_input else 0 for entry in feature_list]
     query = np.array(query)
     result = model.kneighbors(query.reshape(1,-1))
     recommendation_indices = result[1].tolist()[0]
     recommendation_scores = result[0].tolist()[0]
+    save_recommendations(user,recommendation_indices,recommendation_scores)
     return (recommendation_indices,recommendation_scores)
 
+def save_recommendations(user,rec_indices,rec_scores):
+    current_recs = Recommendation.objects.filter(user=user)
+    for obj in current_recs:
+        obj.delete()
+    for index in [0,1,2,3,4]:
+            card = Card.objects.get(pk=rec_indices[index])
+            score = rec_scores[index]
+            rec_object = Recommendation.objects.create(user=user,card=card,recommendation_score=score)
+            
+def get_recommendations(user):
+    current_recs = Recommendation.objects.filter(user=user)
+    results = []
+    for obj in current_recs:
+            card = obj.card
+            result_dict = {}
+            result_dict['card_name'] = card.card_name
+            result_dict['bank_name'] = card.bank_name
+            result_dict['url'] = card.url
+            result_dict['score'] = obj.recommendation_score
+            results.append(result_dict)
+    return results

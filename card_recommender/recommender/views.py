@@ -9,7 +9,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
 import itertools
-from .recommender import feature_list,generate_recommendations
+from .recommender import feature_list,generate_recommendations,get_recommendations
 from sklearn.externals import joblib
 
 
@@ -36,7 +36,7 @@ class PreferenceView(FormView):
         rewards = form.cleaned_data['rewards']
         
         user_input = list(itertools.chain(card_type,interest_rate,max_credit_limit,visa_vs_mastercard,bank,rewards))
-        rec = generate_recommendations(feature_list,user_input)
+        rec = generate_recommendations(self.request.user,feature_list,user_input)
         
         self.request.session['recommendation_indices'] = rec[0]
         self.request.session['recommendation_scores'] = rec[1]
@@ -56,17 +56,9 @@ class RecommendationListView(TemplateView):
     template_name = "recommendation_list.html"
     
     def test_card(self):
-        recommendation_indices = self.request.session['recommendation_indices']
-        recommendation_scores = self.request.session['recommendation_scores']
-        results = []
-        for index in [0,1,2,3,4]:
-            card = Card.objects.get(pk=recommendation_indices[index])
-            result_dict = {}
-            result_dict['card_name'] = card.card_name
-            result_dict['bank_name'] = card.bank_name
-            result_dict['url'] = card.url
-            result_dict['score'] = recommendation_scores[index]
-            results.append(result_dict)
+        #recommendation_indices = self.request.session['recommendation_indices']
+        #recommendation_scores = self.request.session['recommendation_scores']
+        results = get_recommendations(self.request.user)
         return results
     
             
