@@ -18,17 +18,20 @@ from django.conf.urls.static import static
 
 
 from django.contrib import admin
-from django.conf.urls import url
+from django.conf.urls import url,include
 from django.views.generic import TemplateView
+
+
+from search.views import SearchProductView
 
 from products.views import (ProductListView,
                             product_list_view,
                             product_detail_view,
                             ProductDetailView,
+
                             ProductDetailSlugView,
                             ProductFeaturedListView,
                             ProductFeaturedDetailView)
-
 
 from .views import home_page,about_page,contact_page,login_page, register_page
 
@@ -39,12 +42,13 @@ urlpatterns = [
     #url('featured/$', ProductFeaturedListView.as_view()),
     #url('featured/(?P<pk>\d+)/$', ProductFeaturedDetailView.as_view()),
     #url('products/(?P<slug>[\w-]+)/$', ProductDetailSlugView.as_view()),
-    url('products/$', ProductListView.as_view(),name='list'),
+    url('products/$', ProductListView.as_view(), name='list'),
+    url('search/$', SearchProductView.as_view(), name='query'),
     #url('product-vn/$', product_list_view),
     url('products/(?P<pk>\d+)/$', ProductDetailView.as_view(),name='detail'),
     #url('product-vn/(?P<pk>\d+)/$', product_detail_view),
     url('contact/$', contact_page,name='contact'),
-    url('login/$', login_page,name='login'),
+    url('login/$', login_page, name='login'),
     url('bootstrap/$', TemplateView.as_view(template_name='bootstrap/example.html')),
     url('register/$', register_page, name='register'),
     url('admin/', admin.site.urls),

@@ -292,7 +292,7 @@ Recommender system : Recommender systems are generally used in e-commerce and si
 
 # 6.2 Appendix B : Bank List
 
- Selection of Potential Banks to consider for recommendation is shown below before data collection. We aim to collect credit card data from following organization.
+Selection of Potential Banks to consider for recommendation is shown below before data collection. We aim to collect credit card data from following organization.
 
 * Dutch Bangla Bank
 * Eastern Bank Ltd

@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'polls.apps.PollsConfig',
 
     #ourapps
-    'products'
+    'products',
+    'search'
 ]
 
 MIDDLEWARE = [

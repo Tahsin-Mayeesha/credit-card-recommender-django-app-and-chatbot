@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount', # new
     'allauth.socialaccount.providers.google',
     
+    'crispy_forms',
+    
 ]
 # allauth authentication backend
 AUTHENTICATION_BACKENDS = (
@@ -56,6 +58,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SITE_ID = 1
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = True
@@ -140,6 +143,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
 IMPORT_EXPORT_USE_TRANSACTIONS = True
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
+
+
+
+

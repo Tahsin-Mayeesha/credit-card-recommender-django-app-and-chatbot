@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>data clean up</title>
+<title>Final Model Trained On Full Data</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13119,9 +13119,9 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 
     </div>
@@ -13134,7 +13134,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;raw_data.xlsx&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cards</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;clean_data_with_id2.csv&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13147,54 +13147,10 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_data</span><span class="o">.</span><span class="n">dtypes</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">card_features</span>  <span class="o">=</span> <span class="n">cards</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;card_name&quot;</span><span class="p">,</span><span class="s2">&quot;id&quot;</span><span class="p">,</span><span class="s2">&quot;url&quot;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[3]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>Card Name                                object
-Bank Name                                object
-URL                                      object
-Card Type                                object
-Interest Rate(%)                         object
-Cash Withdrawal Limit Per transaction    object
-Cash withdrawal Limit Per day            object
-Credit Limit(Max)                        object
-International Transaction Available      object
-Balance Transfer Available               object
-Dual currency                            object
-reward_supplementary_card                object
-reward_airport_lounge                    object
-reward_cashback_available                object
-reward luxary resort/hotel               object
-reward insurance plan                    object
-reward travel benefits                   object
-reward fine dining                       object
-reward buffet discount                   object
-reward medical discount                  object
-reward_shopping                          object
-reward airlines ticket                   object
-reward point program                     object
-EMI available                            object
-dtype: object</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -13204,7 +13160,20 @@ dtype: object</pre>
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># pd.Series(cards[&#39;bank_name&#39;].unique()).to_csv(&quot;bank_name.csv&quot;,index=False)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">card_features</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13217,36 +13186,32 @@ dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[4]:</div>
+    <div class="prompt output_prompt">Out[5]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>Card Name                                 0
-Bank Name                                 0
-URL                                       0
-Card Type                                 0
-Interest Rate(%)                          4
-Cash Withdrawal Limit Per transaction     2
-Cash withdrawal Limit Per day             2
-Credit Limit(Max)                        15
-International Transaction Available       3
-Balance Transfer Available                6
-Dual currency                             7
-reward_supplementary_card                 4
-reward_airport_lounge                     5
-reward_cashback_available                 4
-reward luxary resort/hotel                4
-reward insurance plan                     4
-reward travel benefits                    4
-reward fine dining                        5
-reward buffet discount                    4
-reward medical discount                   4
-reward_shopping                           4
-reward airlines ticket                    4
-reward point program                      4
-EMI available                             5
+<pre>bank_name                               0
+card_type                               0
+interest_rate                          93
+max_credit_limit                       63
+international_transaction_available     0
+balance_transfer_available              0
+dual_currency                           0
+reward_supplementary_card               0
+reward_airport_lounge                   0
+reward_cashback_available               0
+reward_luxary_resort_hotel              0
+reward_insurance_plan                   0
+reward_travel_benefits                  0
+reward_fine_dining                      0
+reward_buffet_discount                  0
+reward_medical_discount                 0
+reward_shopping                         0
+reward_airlines_ticket                  0
+reward_point_program                    0
+reward_emi_available                    0
 dtype: int64</pre>
 </div>
 
@@ -13256,55 +13221,57 @@ dtype: int64</pre>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Boolean-Features">Boolean Features<a class="anchor-link" href="#Boolean-Features">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bool_features</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">raw_data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">8</span><span class="p">:])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_data</span><span class="p">[</span><span class="n">bool_features</span><span class="p">]</span> <span class="o">=</span> <span class="n">raw_data</span><span class="p">[</span><span class="n">bool_features</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Boolean Features </span>
+
+<span class="n">card_boolean_features</span> <span class="o">=</span> <span class="n">card_features</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Interest-Rate">Interest Rate<a class="anchor-link" href="#Interest-Rate">&#182;</a></h1>
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_data</span><span class="p">[</span><span class="s1">&#39;Interest Rate(%)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">raw_data</span><span class="p">[</span><span class="s1">&#39;Interest Rate(%)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;N/G&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">card_boolean_features</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[7]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index([&#39;international_transaction_available&#39;, &#39;balance_transfer_available&#39;,
+       &#39;dual_currency&#39;, &#39;reward_supplementary_card&#39;, &#39;reward_airport_lounge&#39;,
+       &#39;reward_cashback_available&#39;, &#39;reward_luxary_resort_hotel&#39;,
+       &#39;reward_insurance_plan&#39;, &#39;reward_travel_benefits&#39;, &#39;reward_fine_dining&#39;,
+       &#39;reward_buffet_discount&#39;, &#39;reward_medical_discount&#39;, &#39;reward_shopping&#39;,
+       &#39;reward_airlines_ticket&#39;, &#39;reward_point_program&#39;,
+       &#39;reward_emi_available&#39;],
+      dtype=&#39;object&#39;)</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13312,7 +13279,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Cash-Withdrawal-Features">Cash Withdrawal Features<a class="anchor-link" href="#Cash-Withdrawal-Features">&#182;</a></h1>
+<h1 id="Handle-Card-Type">Handle Card Type<a class="anchor-link" href="#Handle-Card-Type">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -13321,7 +13288,7 @@ dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_data</span><span class="p">[</span><span class="s1">&#39;Cash Withdrawal Limit Per transaction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">raw_data</span><span class="p">[</span><span class="s1">&#39;Cash Withdrawal Limit Per transaction&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;N/G&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;card_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;card_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13334,10 +13301,40 @@ dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_data</span><span class="p">[</span><span class="s1">&#39;Cash withdrawal Limit Per day&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;N/G&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;card_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[9]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Credit                   83
+Debit                    34
+Prepaid                   6
+Prepaid International     1
+Virtual Prepaid           1
+Hajj                      1
+Prepaid(Hajj)             1
+Dual Currency             1
+Credit(Women only)        1
+Proprietary               1
+Name: card_type, dtype: int64</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13347,7 +13344,12 @@ dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_data</span><span class="p">[</span><span class="s1">&#39;Cash withdrawal Limit Per day&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;BND 5,000&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">card_type_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">card_type</span> <span class="ow">in</span> <span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;card_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">card_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Credit&quot;</span><span class="p">,</span><span class="s2">&quot;Debit&quot;</span><span class="p">,</span><span class="s2">&quot;Prepaid&quot;</span><span class="p">]:</span>
+        <span class="n">card_type_dict</span><span class="p">[</span><span class="n">card_type</span><span class="p">]</span><span class="o">=</span><span class="n">card_type</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">card_type_dict</span><span class="p">[</span><span class="n">card_type</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;Prepaid&quot;</span>
 </pre></div>
 
     </div>
@@ -13360,7 +13362,7 @@ dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_data</span><span class="p">[</span><span class="s1">&#39;Cash withdrawal Limit Per day&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;BND 3,000&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;card_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;card_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">card_type_dict</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13373,7 +13375,7 @@ dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_data</span><span class="p">[</span><span class="s1">&#39;Cash withdrawal Limit Per day&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;card_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13392,15 +13394,10 @@ dtype: int64</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>50000.0     10
-300000.0     2
-100000.0     2
-500000.0     2
-0.5          2
-250000.0     1
-20000.0      1
-30000.0      1
-Name: Cash withdrawal Limit Per day, dtype: int64</pre>
+<pre>Credit     83
+Debit      34
+Prepaid    13
+Name: card_type, dtype: int64</pre>
 </div>
 
 </div>
@@ -13408,60 +13405,33 @@ Name: Cash withdrawal Limit Per day, dtype: int64</pre>
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Handle-Interest-Rate">Handle Interest Rate<a class="anchor-link" href="#Handle-Interest-Rate">&#182;</a></h1>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;interest_rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;interest_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
+
+<span class="n">interest_rate_conditions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;interest_rate&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;interest_rate&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">10</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;interest_rate&#39;</span><span class="p">]</span> <span class="o">&gt;=</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;interest_rate&#39;</span><span class="p">]</span> <span class="o">&lt;=</span><span class="mi">10</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;interest_rate&#39;</span><span class="p">]</span> <span class="o">&gt;=</span><span class="mi">11</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;interest_rate&#39;</span><span class="p">]</span> <span class="o">&lt;=</span><span class="mi">20</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;interest_rate&#39;</span><span class="p">]</span> <span class="o">&gt;=</span><span class="mi">21</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;interest_rate&#39;</span><span class="p">]</span> <span class="o">&lt;=</span><span class="mi">30</span><span class="p">),]</span>
+    
+
+<span class="n">interest_rate_choices</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;zero&#39;</span><span class="p">,</span><span class="s1">&#39;1-10&#39;</span><span class="p">,</span><span class="s1">&#39;1-10&#39;</span><span class="p">,</span><span class="s1">&#39;11-20&#39;</span><span class="p">,</span><span class="s1">&#39;21-30&#39;</span><span class="p">]</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[13]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>Card Name                                  0
-Bank Name                                  0
-URL                                        0
-Card Type                                  0
-Interest Rate(%)                          93
-Cash Withdrawal Limit Per transaction    106
-Cash withdrawal Limit Per day            109
-Credit Limit(Max)                         15
-International Transaction Available        0
-Balance Transfer Available                 0
-Dual currency                              0
-reward_supplementary_card                  0
-reward_airport_lounge                      0
-reward_cashback_available                  0
-reward luxary resort/hotel                 0
-reward insurance plan                      0
-reward travel benefits                     0
-reward fine dining                         0
-reward buffet discount                     0
-reward medical discount                    0
-reward_shopping                            0
-reward airlines ticket                     0
-reward point program                       0
-EMI available                              0
-dtype: int64</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -13471,63 +13441,20 @@ dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_data</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;card_name&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;bank_name&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;url&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;card_type&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;interest_rate&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;cash_withdrawal_limit_per_transaction&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;cash_withdrawal_limit_per_day&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;max_credit_limit&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;international_transaction_available&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;balance_transfer_available&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;dual_currency&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;reward_supplementary_card&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;reward_airport_lounge&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;reward_cashback_available&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;reward_luxary_resort_hotel&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;reward_insurance_plan&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;reward_travel_benefits&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;reward_fine_dining&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;reward_buffet_discount&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;reward_medical_discount&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;reward_shopping&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;reward_airlines_ticket&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;reward_point_program&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;reward_emi_available&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;interest_rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">interest_rate_conditions</span><span class="p">,</span><span class="n">interest_rate_choices</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Credit-Limit">Credit Limit<a class="anchor-link" href="#Credit-Limit">&#182;</a></h1>
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_data</span><span class="p">[</span><span class="s1">&#39;max_credit_limit&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;N/G&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_data</span><span class="p">[</span><span class="s1">&#39;max_credit_limit&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;N/A&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;interest_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;zero&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13538,16 +13465,38 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Convert-to-Numbers">Convert to Numbers<a class="anchor-link" href="#Convert-to-Numbers">&#182;</a></h1>
+<h1 id="Handle-Max-Credit-Limit">Handle Max Credit Limit<a class="anchor-link" href="#Handle-Max-Credit-Limit">&#182;</a></h1>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;max_credit_limit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;max_credit_limit&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_data</span><span class="p">[</span><span class="s1">&#39;interest_rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">raw_data</span><span class="p">[</span><span class="s1">&#39;interest_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">credit_limit_conditions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;max_credit_limit&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">10</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;max_credit_limit&#39;</span><span class="p">]</span><span class="o">&lt;=</span><span class="mi">100000</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;max_credit_limit&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">100000</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;max_credit_limit&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">500000</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;max_credit_limit&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">500000</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;max_credit_limit&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">1000000</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;max_credit_limit&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">1000000</span><span class="p">),</span>
+    <span class="p">]</span>
+
+<span class="n">credit_limit_choices</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;unknown&#39;</span><span class="p">,</span><span class="s1">&#39;0-100000&#39;</span><span class="p">,</span><span class="s1">&#39;100000-500000&#39;</span><span class="p">,</span><span class="s1">&#39;500000-1000000&#39;</span><span class="p">,</span><span class="s1">&#39;1000000+&#39;</span><span class="p">]</span>
+<span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;max_credit_limit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">credit_limit_conditions</span><span class="p">,</span><span class="n">credit_limit_choices</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13560,7 +13509,9 @@ dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_data</span><span class="p">[</span><span class="s1">&#39;cash_withdrawal_limit_per_transaction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">raw_data</span><span class="p">[</span><span class="s1">&#39;cash_withdrawal_limit_per_transaction&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;hajj_card&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cards</span><span class="p">[</span><span class="s1">&#39;card_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Hajj&#39;</span><span class="p">)</span>
+<span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;is_visa&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">cards</span><span class="p">[</span><span class="s1">&#39;card_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Visa&#39;</span><span class="p">))</span> <span class="o">|</span> <span class="p">(</span><span class="n">cards</span><span class="p">[</span><span class="s1">&#39;card_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;visa&#39;</span><span class="p">))</span>
+<span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;is_mastercard&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">cards</span><span class="p">[</span><span class="s1">&#39;card_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;MasterCard&#39;</span><span class="p">))</span> <span class="o">|</span> <span class="p">(</span><span class="n">cards</span><span class="p">[</span><span class="s1">&#39;card_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;mastercard&#39;</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -13573,7 +13524,7 @@ dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_data</span><span class="p">[</span><span class="s1">&#39;cash_withdrawal_limit_per_day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">raw_data</span><span class="p">[</span><span class="s1">&#39;cash_withdrawal_limit_per_day&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">card_features</span><span class="p">[</span><span class="s1">&#39;max_credit_limit&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;N/A&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13586,55 +13537,20 @@ dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_data</span><span class="p">[</span><span class="s1">&#39;max_credit_limit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">raw_data</span><span class="p">[</span><span class="s1">&#39;max_credit_limit&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">card_features</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">card_features</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Convert-to-1-0">Convert to 1 0<a class="anchor-link" href="#Convert-to-1-0">&#182;</a></h1>
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bool_columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">raw_data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">8</span><span class="p">:])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">bool_columns</span><span class="p">:</span>
-    <span class="n">raw_data</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="n">raw_data</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-    <span class="n">raw_data</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">=</span> <span class="n">raw_data</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="s1">&#39;T&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;F&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;N/G&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">})</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_data</span><span class="o">.</span><span class="n">dtypes</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">card_features</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 
     </div>
@@ -13647,37 +13563,39 @@ dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[30]:</div>
+    <div class="prompt output_prompt">Out[21]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>card_name                                 object
-bank_name                                 object
-url                                       object
-card_type                                 object
-interest_rate                            float64
-cash_withdrawal_limit_per_transaction    float64
-cash_withdrawal_limit_per_day            float64
-max_credit_limit                         float64
-international_transaction_available        int64
-balance_transfer_available                 int64
-dual_currency                              int64
-reward_supplementary_card                  int64
-reward_airport_lounge                      int64
-reward_cashback_available                  int64
-reward_luxary_resort_hotel                 int64
-reward_insurance_plan                      int64
-reward_travel_benefits                     int64
-reward_fine_dining                         int64
-reward_buffet_discount                     int64
-reward_medical_discount                    int64
-reward_shopping                            int64
-reward_airlines_ticket                     int64
-reward_point_program                       int64
-reward_emi_available                       int64
-dtype: object</pre>
+<pre>Index([&#39;international_transaction_available&#39;, &#39;balance_transfer_available&#39;,
+       &#39;dual_currency&#39;, &#39;reward_supplementary_card&#39;, &#39;reward_airport_lounge&#39;,
+       &#39;reward_cashback_available&#39;, &#39;reward_luxary_resort_hotel&#39;,
+       &#39;reward_insurance_plan&#39;, &#39;reward_travel_benefits&#39;, &#39;reward_fine_dining&#39;,
+       &#39;reward_buffet_discount&#39;, &#39;reward_medical_discount&#39;, &#39;reward_shopping&#39;,
+       &#39;reward_airlines_ticket&#39;, &#39;reward_point_program&#39;,
+       &#39;reward_emi_available&#39;, &#39;hajj_card&#39;, &#39;is_visa&#39;, &#39;is_mastercard&#39;,
+       &#39;bank_name_AB Bank&#39;, &#39;bank_name_Agrani Bank Limited&#39;,
+       &#39;bank_name_BRAC Bank Limited&#39;, &#39;bank_name_Bangladesh Krishi Bank&#39;,
+       &#39;bank_name_Bank Asia Limited&#39;, &#39;bank_name_City Bank Limited&#39;,
+       &#39;bank_name_Dhaka Bank&#39;, &#39;bank_name_Dutch Bangla Bank Limited&#39;,
+       &#39;bank_name_IFIC Bank Limited&#39;, &#39;bank_name_Jamuna Bank Limited&#39;,
+       &#39;bank_name_Janata Bank Limited&#39;, &#39;bank_name_Meghna Bank&#39;,
+       &#39;bank_name_Midland Bank&#39;, &#39;bank_name_Modhumoti Bank&#39;,
+       &#39;bank_name_Mutual Trust bank Limited&#39;, &#39;bank_name_NRB Bank Limited&#39;,
+       &#39;bank_name_NRB Commercial Bank Limited&#39;,
+       &#39;bank_name_National Credit and Commerce Bank Limited&#39;,
+       &#39;bank_name_One Bank&#39;, &#39;bank_name_Premier Bank&#39;, &#39;bank_name_Prime Bank&#39;,
+       &#39;bank_name_Pubali Bank Limited&#39;, &#39;bank_name_Rupali Bank Limited&#39;,
+       &#39;bank_name_Sonali Bank Limited&#39;, &#39;bank_name_Standard Charter&#39;,
+       &#39;bank_name_Trust Bank&#39;, &#39;bank_name_United Commercial Bank Limited&#39;,
+       &#39;card_type_Credit&#39;, &#39;card_type_Debit&#39;, &#39;card_type_Prepaid&#39;,
+       &#39;interest_rate_1-10&#39;, &#39;interest_rate_11-20&#39;, &#39;interest_rate_21-30&#39;,
+       &#39;interest_rate_zero&#39;, &#39;max_credit_limit_0-100000&#39;,
+       &#39;max_credit_limit_100000-500000&#39;, &#39;max_credit_limit_1000000+&#39;,
+       &#39;max_credit_limit_N/A&#39;, &#39;max_credit_limit_unknown&#39;],
+      dtype=&#39;object&#39;)</pre>
 </div>
 
 </div>
@@ -13689,16 +13607,123 @@ dtype: object</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Save-Data">Save Data<a class="anchor-link" href="#Save-Data">&#182;</a></h1>
+<h1 id="Unsupervised-Model-Fitting">Unsupervised Model Fitting<a class="anchor-link" href="#Unsupervised-Model-Fitting">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;clean_data.csv&quot;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="k">import</span> <span class="n">NearestNeighbors</span>
+<span class="n">neigh</span> <span class="o">=</span> <span class="n">NearestNeighbors</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">neigh</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">card_features</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[23]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>NearestNeighbors(algorithm=&#39;auto&#39;, leaf_size=30, metric=&#39;minkowski&#39;,
+         metric_params=None, n_jobs=1, n_neighbors=5, p=2, radius=1.0)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">query_reshape</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">card_features</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.externals</span> <span class="k">import</span> <span class="n">joblib</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">neigh</span><span class="p">,</span><span class="s1">&#39;knn.pickle&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[26]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;knn.pickle&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">example_query</span> <span class="o">=</span> <span class="p">{}</span>
 </pre></div>
 
     </div>
