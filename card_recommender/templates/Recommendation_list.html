@@ -4,8 +4,6 @@
 {% block content %}
 {% if user.is_authenticated %}
     <p>These are your recommendations, {{user.username}} </p>
-    {{ view.test_data_passing }}
-    
     <ul>
     {% for card in view.test_card %}
     <li>

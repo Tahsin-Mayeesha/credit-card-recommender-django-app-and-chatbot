@@ -19,38 +19,38 @@ class ContactForm(forms.Form):
 class PreferenceForm(forms.Form):
     
     CARD_TYPE_CHOICES = (
-    ('credit', 'Credit'),
-    ('debit', 'Debit'),
-    ('prepaid', 'Prepaid'),
+    ('card_type_Credit', 'Credit'),
+    ('card_type_Debit', 'Debit'),
+    ('card_type_Prepaid', 'Prepaid'),
     )
     
-    BANK_CHOICES = (('Sonali Bank Limited','Sonali Bank Limited'),
-                    ('Janata Bank Limited','Janata Bank Limited'),
-                    ('Agrani Bank Limited','Agrani Bank Limited'),
-                    ('Rupali Bank Limited','Rupali Bank Limited'),
-                    ('Bangladesh Krishi Bank','Bangladesh Krishi Bank'),
-                    ('AB Bank','AB Bank'),
-                    ('Bank Asia Limited','Bank Asia Limited'),
-                    ('BRAC Bank Limited','BRAC Bank Limited'),
-                    ('City Bank Limited','City Bank Limited'),
-                    ('Dhaka Bank','Dhaka Bank'),
-                    ('Dutch Bangla Bank Limited','Dutch Bangla Bank Limited'),
-                    ('IFIC Bank Limited','IFIC Bank Limited'),
-                    ('Jamuna Bank Limited','Jamuna Bank Limited'),
-                    ('Meghna Bank','Meghna Bank'),
-                    ('Midland Bank','Midland Bank'),
-                    ('Modhumoti Bank','Modhumoti Bank'),
-                    ('Mutual Trust bank Limited','Mutual Trust bank Limited'),
-                    ('National Credit and Commerce Bank Limited','National Credit and Commerce Bank Limited'),
-                    ('NRB Bank Limited','NRB Bank Limited'),
-                    ('NRB Commercial Bank Limited','NRB Commercial Bank Limited'),
-                    ('Prime Bank','Prime Bank'),
-                    ('Trust Bank','Trust Bank'),
-                    ('Pubali Bank Limited','Pubali Bank Limited'),
-                    ('United Commercial Bank Limited','United Commercial Bank Limited'),
-                    ('Standard Charter','Standard Charter Bank'),
-                    ('One Bank','One Bank'),
-                    ('Premier Bank','Premier Bank')
+    BANK_CHOICES = (('bank_name_Sonali Bank Limited','Sonali Bank Limited'),
+                    ('bank_name_Janata Bank Limited','Janata Bank Limited'),
+                    ('bank_name_Agrani Bank Limited','Agrani Bank Limited'),
+                    ('bank_name_Rupali Bank Limited','Rupali Bank Limited'),
+                    ('bank_name_Bangladesh Krishi Bank','Bangladesh Krishi Bank'),
+                    ('bank_name_AB Bank','AB Bank'),
+                    ('bank_name_Bank Asia Limited','Bank Asia Limited'),
+                    ('bank_name_BRAC Bank Limited','BRAC Bank Limited'),
+                    ('bank_name_City Bank Limited','City Bank Limited'),
+                    ('bank_name_Dhaka Bank','Dhaka Bank'),
+                    ('bank_name_Dutch Bangla Bank Limited','Dutch Bangla Bank Limited'),
+                    ('bank_name_IFIC Bank Limited','IFIC Bank Limited'),
+                    ('bank_name_Jamuna Bank Limited','Jamuna Bank Limited'),
+                    ('bank_name_Meghna Bank','Meghna Bank'),
+                    ('bank_name_Midland Bank','Midland Bank'),
+                    ('bank_name_Modhumoti Bank','Modhumoti Bank'),
+                    ('bank_name_Mutual Trust bank Limited','Mutual Trust bank Limited'),
+                    ('bank_name_National Credit and Commerce Bank Limited','National Credit and Commerce Bank Limited'),
+                    ('bank_name_NRB Bank Limited','NRB Bank Limited'),
+                    ('bank_name_NRB Commercial Bank Limited','NRB Commercial Bank Limited'),
+                    ('bank_name_Prime Bank','Prime Bank'),
+                    ('bank_name_Trust Bank','Trust Bank'),
+                    ('bank_name_Pubali Bank Limited','Pubali Bank Limited'),
+                    ('bank_name_United Commercial Bank Limited','United Commercial Bank Limited'),
+                    ('bank_name_Standard Charter','Standard Charter Bank'),
+                    ('bank_name_One Bank','One Bank'),
+                    ('bank_name_Premier Bank','Premier Bank')
                     )
     
     REWARD_CHOICES = (("international_transaction_available","International Transaction"),
@@ -68,21 +68,54 @@ class PreferenceForm(forms.Form):
                       ("reward_shopping","Shopping Points"),
                       ("reward_airlines_ticket","Air Travel Ticket Discount"),
                       ("reward_point_program","Loyalty Points Program"),
-                      ("reward_emi_available","EMI Discount")
+                      ("reward_emi_available","EMI Discount"),
+                      ("hajj_card","Hajj")
                       )
+    
+    VISA_VS_MASTERCARD_CHOICES = (("is_visa","Visa"),
+                                 ("is_mastercard","Mastercard"),)
+                                 
+    INTEREST_RATE_CHOICES = (("'interest_rate_1-10","1-10%"),
+                              ("interest_rate_11-20", "11-20%"),
+                              ("interest_rate_21-30", "21-30%"),
+                              ("interest_rate_zero","zero%(For debit cards)"))
 
+
+    CREDIT_LIMIT_CHOICES = (("max_credit_limit_0-100000", "0 to 1 Lakh"),
+                            ("max_credit_limit_100000-500000","1 to 5 Lakh"), 
+                            ("max_credit_limit_1000000+", "More than 10 Lakh"),
+                            ("max_credit_limit_N/A", "Not Applicable(For Debit Cards)"),
+                            ('max_credit_limit_unknown', "Unknown Ok"))
+    
     name = forms.CharField(label = "Name")
     age = forms.IntegerField(label="Age")
+    Occupation = forms.CharField(label="Occupation")
     address = forms.CharField(label="Address")
-    card_type = forms.ChoiceField(choices = CARD_TYPE_CHOICES, widget = forms.RadioSelect, label="Card Type")
+    
+    card_type = forms.MultipleChoiceField(choices = CARD_TYPE_CHOICES, 
+                                          widget = forms.CheckboxSelectMultiple, label="Card Type")
+    
+    interest_rate = forms.MultipleChoiceField(choices=INTEREST_RATE_CHOICES,
+                                      widget = forms.CheckboxSelectMultiple,
+                                      label = "Interest Rate")
+    
+    max_credit_limit = forms.MultipleChoiceField(choices=CREDIT_LIMIT_CHOICES,
+                                                 widget = forms.CheckboxSelectMultiple,
+                                                 label = "Choose Credit Limit"
+                                                 )
+    
+    visa_vs_mastercard = forms.MultipleChoiceField(choices=VISA_VS_MASTERCARD_CHOICES,
+                                           widget = forms.CheckboxSelectMultiple,
+                                           label = "Visa/Mastercard")
+    
+    bank = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple,
+                                     choices=BANK_CHOICES,
+                                     label="List of supported banks",required=False)
+    
+    rewards = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple,
+                                        choices=REWARD_CHOICES,
+                                        label = "Rewards",required=False)
     
     
-    #bank = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple,
-     #                                choices=BANK_CHOICES,
-     #                                label="Choose preferred banks among the currently supported ones.")
-    
-    #rewards = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple,
-    #                                    choices=REWARD_CHOICES,
-    #                                    label = "Choose the required rewards.")
 
     

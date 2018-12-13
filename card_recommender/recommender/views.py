@@ -1,28 +1,22 @@
 from django.shortcuts import render
+from django.conf import settings
 from django.views.generic.base import TemplateView
 from .forms import ContactForm,PreferenceForm
 from .models import Card
-# Create your views here.
-
-from django.http import HttpResponse
-
+from django.views.generic.edit import FormView
+import numpy as np
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
+import itertools
+from .recommender import feature_list,generate_recommendations
+from sklearn.externals import joblib
 
 
 def homepage(request):
     return render(request, 'home.html')
 
 
-
-#def user_preference(request):
-#    return render(request,'preferences.html')
-
-#def recommendations(request):
-#    return HttpResponse("Recommended Cards")
-    
-from django.views.generic.edit import FormView
 
 class PreferenceView(FormView):
     template_name = 'preferences.html'
@@ -35,11 +29,21 @@ class PreferenceView(FormView):
         # This method is called when valid form data has been POSTed.
         # It should return an HttpResponse.
         card_type = form.cleaned_data['card_type']
-        name = form.cleaned_data['name']
-        self.request.session["test_data"] = "number"
-        print(name)
-        print(card_type)
+        interest_rate = form.cleaned_data['interest_rate']
+        max_credit_limit = form.cleaned_data['max_credit_limit']
+        visa_vs_mastercard = form.cleaned_data['visa_vs_mastercard']
+        bank = form.cleaned_data['bank']
+        rewards = form.cleaned_data['rewards']
+        
+        user_input = list(itertools.chain(card_type,interest_rate,max_credit_limit,visa_vs_mastercard,bank,rewards))
+        rec = generate_recommendations(feature_list,user_input)
+        
+        self.request.session['recommendation_indices'] = rec[0]
+        self.request.session['recommendation_scores'] = rec[1]
+        
+    
         return super().form_valid(form)
+
 
 class SignUp(generic.CreateView):
     form_class = UserCreationForm
@@ -47,20 +51,13 @@ class SignUp(generic.CreateView):
     template_name = 'signup.html'
     
 
+
 class RecommendationListView(TemplateView):
     template_name = "recommendation_list.html"
     
-    
-    def recommended_cards(self):
-        return [{'name':"Card 1","bank":"Bank 1","score":0.987},
-                {"name":"Card 2","bank":"Bank 2","score":0.765}]
-    
-    def test_data_passing(self):
-        return self.request.session['test_data']
-    
     def test_card(self):
-        recommendation_indices = [13,45,87,23,11]
-        recommendation_scores = [0.98,0.54,0.32,0.30,0.24]
+        recommendation_indices = self.request.session['recommendation_indices']
+        recommendation_scores = self.request.session['recommendation_scores']
         results = []
         for index in [0,1,2,3,4]:
             card = Card.objects.get(pk=recommendation_indices[index])
@@ -84,11 +81,7 @@ def contact_page(request):
     }
     if contact_form.is_valid():
         print(contact_form.cleaned_data)
-    #if request.method == "POST":
-    #    #print(request.POST)
-    #    print(request.POST.get('fullname'))
-    #    print(request.POST.get('email'))
-    #    print(request.POST.get('content'))
+
     return render(request, "contact/view.html", context)
     
     
