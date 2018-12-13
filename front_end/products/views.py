@@ -16,7 +16,7 @@ class ProductListView(ListView):
     #    print(context)
     #    return context
 
-    def get_queryset(self,*args,**kwargs):
+    def get_queryset(self, *args, **kwargs):
         request = self.request
         return Product.objects.all()
 
@@ -81,7 +81,6 @@ class ProductDetailView(DetailView):
        context = super(ProductDetailView, self).get_context_data(*args, **kwargs)
        print(context)
        return context
-
 
 
     def get_object(self, *args, **kwargs):
