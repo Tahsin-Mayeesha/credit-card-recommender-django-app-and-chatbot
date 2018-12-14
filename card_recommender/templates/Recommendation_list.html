@@ -3,18 +3,19 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-    <p>These are your recommendations, {{user.username}} </p>
-    <ul>
+    <p style="font-size:150%;">Recommendations for {{user.username}} </p>
+    <ul style="list-style: none;">
     {% for card in view.test_card %}
     <li>
-    <div class="card" style="width: 25rem;">
+    <div class="card" style="width: 20rem;">
     <div class="card-body">
     <h5 class="card-title">{{card.card_name}}</h5>
     <p class="card-text">
-    Bank : {{card.bank_name}}<br>
-    Score : {{card.score}}
+    <p>Bank : {{card.bank_name}}</p>
+    <p>Score : {{card.score}}</p>
+    <br>
+    <p><a href= "{{ card.url }}" class="btn btn-primary">View</a></p>
     </p>
-    <a href= "{{ card.url }}" class="btn btn-primary">View</a>
     </li>
     <br>
     {% endfor %}

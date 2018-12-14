@@ -1,8 +1,6 @@
 from django.shortcuts import render
-from django.conf import settings
 from django.views.generic.base import TemplateView
-from .forms import ContactForm,PreferenceForm
-from .models import Card
+from .forms import ContactForm,PreferenceForm,ProfileForm
 from django.views.generic.edit import FormView
 import numpy as np
 from django.contrib.auth.forms import UserCreationForm
@@ -11,12 +9,29 @@ from django.views import generic
 import itertools
 from .recommender import feature_list,generate_recommendations,get_recommendations
 from sklearn.externals import joblib
-
+from django.views.generic.edit import UpdateView,CreateView
+from .models import Profile
 
 def homepage(request):
     return render(request, 'home.html')
 
 
+class ProfileView(UpdateView):
+    form_class = ProfileForm
+    template_name = "profile.html"
+    success_url = '/'
+    
+    def get_object(self, queryset=None):
+
+        # get the existing object or created a new one
+        obj, created = Profile.objects.get_or_create(user=self.request.user)
+
+        return obj
+    
+    def form_valid(self, form):
+        name = form.cleaned_data['username']
+        print(name)
+        return super().form_valid(form)
 
 class PreferenceView(FormView):
     template_name = 'preferences.html'
@@ -38,10 +53,6 @@ class PreferenceView(FormView):
         user_input = list(itertools.chain(card_type,interest_rate,max_credit_limit,visa_vs_mastercard,bank,rewards))
         rec = generate_recommendations(self.request.user,feature_list,user_input)
         
-        self.request.session['recommendation_indices'] = rec[0]
-        self.request.session['recommendation_scores'] = rec[1]
-        
-    
         return super().form_valid(form)
 
 

@@ -63,6 +63,6 @@ def get_recommendations(user):
             result_dict['card_name'] = card.card_name
             result_dict['bank_name'] = card.bank_name
             result_dict['url'] = card.url
-            result_dict['score'] = obj.recommendation_score
+            result_dict['score'] = round(obj.recommendation_score,3)
             results.append(result_dict)
     return results
