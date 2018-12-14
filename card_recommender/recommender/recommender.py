@@ -1,5 +1,6 @@
 from sklearn.externals import joblib
 import numpy as np
+import os
 from .models import Card,Recommendation
 
 
@@ -30,7 +31,6 @@ feature_list = ['international_transaction_available', 'balance_transfer_availab
        'max_credit_limit_100000-500000', 'max_credit_limit_1000000+',
        'max_credit_limit_N/A', 'max_credit_limit_unknown']
 
-import os
 
 full_dir = "recommender/model/knn.pickle"
 model = joblib.load(os.path.realpath(full_dir))
