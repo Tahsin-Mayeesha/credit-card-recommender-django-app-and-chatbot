@@ -18,12 +18,16 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from search.views import SearchProductView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include("recommender.urls")),
     #path('accounts/', include('django.contrib.auth.urls')), # new
     path('accounts/', include('allauth.urls')),
+    path('search/', SearchProductView.as_view(), name='query'),
+
 ]
 
 if settings.DEBUG:

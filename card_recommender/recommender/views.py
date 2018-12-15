@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
+from django.http import Http404
 from .forms import ContactForm,PreferenceForm,ProfileForm
 from django.views.generic.edit import FormView
 import numpy as np
@@ -10,7 +11,8 @@ import itertools
 from .recommender import feature_list,generate_recommendations,get_recommendations
 from sklearn.externals import joblib
 from django.views.generic.edit import UpdateView,CreateView
-from .models import Profile
+from django.views.generic import DetailView
+from .models import Card,Profile
 
 def homepage(request):
     return render(request, 'home.html')
@@ -88,3 +90,20 @@ def contact_page(request):
     return render(request, "contact/view.html", context)
     
     
+class ProductDetailView(DetailView):
+    #queryset = Product.objects.all()
+    template_name = "products/detail.html"
+
+    def get_context_data(self, *args, **kwargs):
+       context = super(ProductDetailView, self).get_context_data(*args, **kwargs)
+       print(context)
+       return context
+
+
+    def get_object(self, *args, **kwargs):
+        request =self.request
+        pk = self.kwargs.get('pk')
+        instance = Card.objects.get_by_id(pk)
+        if instance is None:
+            raise Http404("Card doesnt exist")
+        return instance

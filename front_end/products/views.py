@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 
-from .models import Product
+from recommender.models import Card
 
 
 class ProductListView(ListView):
@@ -18,7 +18,7 @@ class ProductListView(ListView):
 
     def get_queryset(self, *args, **kwargs):
         request = self.request
-        return Product.objects.all()
+        return Card.objects.all()
 
 class ProductFeaturedListView(ListView):
     template_name = "products/list.html"
@@ -86,9 +86,9 @@ class ProductDetailView(DetailView):
     def get_object(self, *args, **kwargs):
         request =self.request
         pk = self.kwargs.get('pk')
-        instance = Product.objects.get_by_id(pk)
+        instance = Card.objects.get_by_id(pk)
         if instance is None:
-            raise Http404("Product doesnt exist")
+            raise Http404("Card doesnt exist")
         return instance
 
 

@@ -1,9 +1,42 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from django.db.models import Q
 
 
 # Create your models here.
+
+class ProductQuerySet(models.query.QuerySet):
+    #def active(self):
+    #   return self.filter(active=True)
+
+
+    #def featured(self):
+    #    return self.filter(featured=True, active=True)
+
+    def search(self, query):
+        lookups = Q(card_name__icontains=query) | Q(bank_name__icontains=query)
+        return self.filter(lookups).distinct()
+
+class ProductManager(models.Manager):
+    def get_queryset(self):
+        return ProductQuerySet(self.model, using=self._db)
+
+    #def all(self):
+    #    return self.get_queryset().active()
+
+    #def features(self):
+    #    return self.get_queryset().featured()
+
+    def get_by_id(self, id):
+        qs = self.get_queryset().filter(id=id)
+        if qs.count() == 1:
+            return qs.first()
+        return None
+
+    def search(self, query):
+        return self.get_queryset().search(query)
+
 
 class Card(models.Model):
     card_name  = models.CharField(max_length=150)
@@ -33,7 +66,16 @@ class Card(models.Model):
     users = models.ManyToManyField(User,
                                    through="Recommendation",
                                    through_fields = ('card','user'))
+    
+    objects = ProductManager()
 
+    def __str__(self):
+        return self.card_name
+    
+    def get_absolute_url(self):
+        #return "/products/{pk}/".format(pk=self.pk)
+        return reverse("detail", kwargs={"pk": self.pk})
+    
 class Recommendation(models.Model):
     card = models.ForeignKey(Card,on_delete=models.CASCADE)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
