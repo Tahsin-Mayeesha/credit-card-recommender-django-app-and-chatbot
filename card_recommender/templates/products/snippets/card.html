@@ -1,3 +1,4 @@
+
 <div class="card" style="width: 20rem;">
     {% if instance.image %}
     <img class="card-img-top" src="{{ instance.image.url }}" alt="{{ instance.title }} logo">
@@ -7,6 +8,5 @@
     <p class="card-text">{{ instance.bank_name|linebreaks|truncatewords:14 }}</p>
     <a href="{{ instance.url }}" class="btn btn-primary">View</a>
  <!--     <a href="{%  url 'detail' pk=instance.pk %}" class="btn btn-warning">URL shortcut</a> -->
-
-  </div>
+    </div>
 </div>
