@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load socialaccount %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <p style="font-size:150%;">Recommendations for {{user.username}} </p>
+    <ul style="list-style: none;">
+    {% for card in view.test_card %}
+    <li>
+    <div class="card" style="width: 20rem;">
+    {% if card.nearby %}
+        <div class="card-header">
+        <button type="button" class="btn btn-success float-left">Nearby </button>
+        </div>
+    {% endif %}
+    <div class="card-body">
+    <h5 class="card-title">{{card.card_name}}</h5>
+    <p class="card-text">
+    <p>Bank : {{card.bank_name}}</p>
+    <p>Score : {{card.score}}</p>
+    <br>
+    <p><a href= "{{ card.url }}" class="btn btn-primary">View</a></p><br>
+    {% if card.nearby %}
+        <div class="card-footer"><h6>Distance {{card.distance }} meters</h6></div>
+    {% endif %}
+    </p>
+    </li>
+    <br>
+    {% endfor %}
+    </ul>
+    </div>
+    </div>
+{% else %}
+  <p>You are not logged in</p>
+
+{% endif %}
+{% endblock %}
