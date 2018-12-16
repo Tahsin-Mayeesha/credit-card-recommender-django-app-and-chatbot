@@ -87,10 +87,10 @@ class PreferenceForm(forms.Form):
                             ("max_credit_limit_N/A", "Not Applicable(For Debit Cards)"),
                             ('max_credit_limit_unknown', "Unknown Ok"))
     
-    #name = forms.CharField(label = "Name")
-    #age = forms.IntegerField(label="Age")
-    #Occupation = forms.CharField(label="Occupation")
-    #address = forms.CharField(label="Address")
+    name = forms.CharField(label = "Name")
+    occupation = forms.CharField(label="Occupation")
+    area = forms.CharField(label="Area")
+    city = forms.CharField(label="City")
     
     card_type = forms.MultipleChoiceField(choices = CARD_TYPE_CHOICES, 
                                           widget = forms.CheckboxSelectMultiple, label="Card Type")

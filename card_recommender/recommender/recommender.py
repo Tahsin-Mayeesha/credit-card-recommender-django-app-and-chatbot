@@ -1,8 +1,8 @@
 from sklearn.externals import joblib
 import numpy as np
 import os
-from .models import Card,Recommendation
-
+from .models import Card,Recommendation,Profile
+from .location import location_scoring_cards
 
 feature_list = ['international_transaction_available', 'balance_transfer_available',
        'dual_currency', 'reward_supplementary_card', 'reward_airport_lounge',
@@ -36,26 +36,47 @@ full_dir = "recommender/model/knn.pickle"
 model = joblib.load(os.path.realpath(full_dir))
 
 
-def generate_recommendations(user,feature_list,user_input,model=model):
+def generate_recommendations(user,feature_list,user_input,user_profile,model=model):
     query = [1 if entry in user_input else 0 for entry in feature_list]
     query = np.array(query)
     result = model.kneighbors(query.reshape(1,-1))
     recommendation_indices = result[1].tolist()[0]
     recommendation_scores = result[0].tolist()[0]
+    
+    current_profile = Profile.objects.filter(user=user)
+    if(len(current_profile)>0):
+        for obj in current_profile:
+            obj.delete()
+    
+    make_profile = Profile.objects.create(user=user,
+                                          occupation=user_profile['occupation'],
+                                          area=user_profile['area'],
+                                          city=user_profile['city']
+                                          )
+    
     save_recommendations(user,recommendation_indices,recommendation_scores)
     return (recommendation_indices,recommendation_scores)
 
 def save_recommendations(user,rec_indices,rec_scores):
     current_recs = Recommendation.objects.filter(user=user)
-    for obj in current_recs:
-        obj.delete()
+    if len(current_recs)>0:
+        for obj in current_recs:
+            obj.delete()
     for index in [0,1,2,3,4]:
             card = Card.objects.get(pk=rec_indices[index])
             score = rec_scores[index]
             rec_object = Recommendation.objects.create(user=user,card=card,recommendation_score=score)
-            
+
 def get_recommendations(user):
     current_recs = Recommendation.objects.filter(user=user)
+    current_profile = Profile.objects.filter(user=user)[0]
+    user_location = {'city':current_profile.city,'area':current_profile.area}
+    card_preference_banks = []
+    for obj in current_recs:
+        card = obj.card
+        card_preference_banks.append(card.bank_name)
+    bank_distances = location_scoring_cards(user_location,card_preference_banks)
+    print(bank_distances)
     results = []
     for obj in current_recs:
             card = obj.card
@@ -64,5 +85,16 @@ def get_recommendations(user):
             result_dict['bank_name'] = card.bank_name
             result_dict['url'] = card.url
             result_dict['score'] = round(obj.recommendation_score,3)
+            
+            bank_distance= bank_distances[card.bank_name.replace("Limited",'').lower().strip()]
+            if bank_distance!=np.inf:
+                result_dict['nearby'] = True
+                result_dict['distance'] = bank_distance
+            else:
+                result_dict['nearby'] = False
             results.append(result_dict)
+
     return results
+    
+
+

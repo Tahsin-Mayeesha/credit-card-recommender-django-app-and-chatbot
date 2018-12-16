@@ -83,14 +83,7 @@ class Recommendation(models.Model):
     
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
-    username = models.CharField(max_length=200)
-    
-    TITLE_CHOICES = (
-    ('MR', 'Mr.'),
-    ('MRS', 'Mrs.'),
-    ('MS', 'Ms.'),
-    )
-    
-    title = models.CharField(max_length=3, choices=TITLE_CHOICES,null=True)
-     
+    occupation = models.CharField(max_length=300)
+    area = models.CharField(max_length=300)
+    city = models.CharField(max_length=300)
 

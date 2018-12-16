@@ -53,7 +53,11 @@ class PreferenceView(FormView):
         rewards = form.cleaned_data['rewards']
         
         user_input = list(itertools.chain(card_type,interest_rate,max_credit_limit,visa_vs_mastercard,bank,rewards))
-        rec = generate_recommendations(self.request.user,feature_list,user_input)
+        user_profile = {"occupation":form.cleaned_data['occupation'],
+                         'city':form.cleaned_data['city'],
+                         'area':form.cleaned_data['area']
+                              }
+        rec = generate_recommendations(self.request.user,feature_list,user_input,user_profile)
         
         return super().form_valid(form)
 
