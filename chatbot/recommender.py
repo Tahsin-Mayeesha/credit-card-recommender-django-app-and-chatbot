@@ -1,6 +1,7 @@
 from sklearn.externals import joblib
 from feature_preprocessing import feature_maps
 import numpy as np
+import pandas as pd
 import os
 
 user_input = {'visaVsMasterCard': ['mastercard'], 
@@ -8,6 +9,13 @@ user_input = {'visaVsMasterCard': ['mastercard'],
               'reward': ['fine dining'], 
               'InterestRate': [], 
               'CreditLimit': []}
+
+cards = pd.read_csv("data.csv")
+
+def get_card_names(indices):
+    return cards.iloc[indices[0],:]["card_name"]
+    
+
 
 feature_list = ['international_transaction_available', 'balance_transfer_available',
        'dual_currency', 'reward_supplementary_card', 'reward_airport_lounge',
@@ -63,3 +71,9 @@ print(query)
 result = model.kneighbors(query.reshape(1,-1))
 print(result)
 
+indices = result[1]
+scores = result[0]
+indices = indices.tolist()
+print(indices)
+card_names = get_card_names(indices).tolist()
+print(",".join(card_names))

@@ -60,3 +60,4 @@ feature_maps = {
         "more than 1000000":'max_credit_limit_1000000+',
         "N/A":'max_credit_limit_N/A', 
         "Unknown":'max_credit_limit_unknown'}
+

@@ -148,7 +148,7 @@ STATICFILES_DIRS = (
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR,"static_recommender")
-
+#STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
 IMPORT_EXPORT_USE_TRANSACTIONS = True
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
