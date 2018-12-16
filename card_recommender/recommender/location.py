@@ -1,6 +1,8 @@
 import requests
 import numpy as np
 
+# API website : https://www.here.com/en
+
 app_id = "EPimKPfenNGqsgGCr01O"
 app_code  = "n6V78llT2352UUagDt295g"
 
